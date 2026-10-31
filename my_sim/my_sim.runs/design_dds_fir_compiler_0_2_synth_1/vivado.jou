@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Sun Nov  1 00:11:12 2026
+# Process ID: 16632
+# Current directory: C:/Users/ASUS/Xilinx_project/my_sim/my_sim/my_sim.runs/design_dds_fir_compiler_0_2_synth_1
+# Command line: vivado.exe -log design_dds_fir_compiler_0_2.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_dds_fir_compiler_0_2.tcl
+# Log file: C:/Users/ASUS/Xilinx_project/my_sim/my_sim/my_sim.runs/design_dds_fir_compiler_0_2_synth_1/design_dds_fir_compiler_0_2.vds
+# Journal file: C:/Users/ASUS/Xilinx_project/my_sim/my_sim/my_sim.runs/design_dds_fir_compiler_0_2_synth_1\vivado.jou
+#-----------------------------------------------------------
+source design_dds_fir_compiler_0_2.tcl -notrace

@@ -1,0 +1,635 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x758FAB0BA45683CA",
+      "device": "xc7z020clg400-2",
+      "gen_directory": "../../../../mySim.gen/sources_1/bd/design_dds",
+      "name": "design_dds",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2020.2",
+      "validated": "true"
+    },
+    "design_tree": {
+      "Modulator": {
+        "envelope_16b_0": "",
+        "dds_compiler_0": "",
+        "dds_compiler_1": "",
+        "mult_gen_0": "",
+        "carrier_scale_0": ""
+      },
+      "dds_compiler_0": "",
+      "fir_compiler_0": "",
+      "xlconstant_0": "",
+      "xlslice_0": "",
+      "xlslice_1": "",
+      "mult_gen_0": ""
+    },
+    "ports": {
+      "aclk_0": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "ASSOCIATED_RESET": {
+            "value": "rst_n"
+          },
+          "CLK_DOMAIN": {
+            "value": "design_dds_aclk_0",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.000",
+            "value_src": "default"
+          }
+        }
+      },
+      "sin_1M": {
+        "direction": "O",
+        "left": "15",
+        "right": "0"
+      },
+      "rst_n": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW"
+          }
+        }
+      },
+      "sin_1K": {
+        "direction": "O",
+        "left": "15",
+        "right": "0"
+      },
+      "sin_modu": {
+        "type": "data",
+        "direction": "O",
+        "left": "31",
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "xilinx.com:interface:datatypes:1.0 {DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data} bitwidth {attribs {resolve_type generated dependency bitwidth format long minimum {} maximum {}} value 32} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type generated dependency signed format bool minimum {} maximum {}} value TRUE}}}} DATA_WIDTH 32}",
+            "value_src": "ip_prop"
+          }
+        }
+      },
+      "AM_out": {
+        "direction": "O",
+        "left": "15",
+        "right": "0"
+      }
+    },
+    "components": {
+      "Modulator": {
+        "ports": {
+          "aclk_0": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "sin_1K": {
+            "type": "data",
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "sin_1M": {
+            "type": "data",
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "rst_n": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "sin_modu": {
+            "type": "data",
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          }
+        },
+        "components": {
+          "envelope_16b_0": {
+            "vlnv": "xilinx.com:module_ref:envelope_16b:1.0",
+            "xci_name": "design_dds_envelope_16b_0_0",
+            "xci_path": "ip\\design_dds_envelope_16b_0_0\\design_dds_envelope_16b_0_0.xci",
+            "inst_hier_path": "Modulator/envelope_16b_0",
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "envelope_16b",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "clk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "FREQ_HZ": {
+                    "value": "100000000",
+                    "value_src": "user_prop"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "design_dds_aclk_0",
+                    "value_src": "default_prop"
+                  }
+                }
+              },
+              "tvalid": {
+                "direction": "I"
+              },
+              "msg": {
+                "direction": "I",
+                "left": "15",
+                "right": "0"
+              },
+              "tvalid_o": {
+                "direction": "O"
+              },
+              "env": {
+                "direction": "O",
+                "left": "15",
+                "right": "0"
+              }
+            }
+          },
+          "dds_compiler_0": {
+            "vlnv": "xilinx.com:ip:dds_compiler:6.0",
+            "xci_name": "design_dds_dds_compiler_0_0",
+            "xci_path": "ip\\design_dds_dds_compiler_0_0\\design_dds_dds_compiler_0_0.xci",
+            "inst_hier_path": "Modulator/dds_compiler_0",
+            "parameters": {
+              "Frequency_Resolution": {
+                "value": "200"
+              },
+              "Has_ARESETn": {
+                "value": "true"
+              },
+              "Has_Phase_Out": {
+                "value": "false"
+              },
+              "Has_TREADY": {
+                "value": "false"
+              },
+              "Latency": {
+                "value": "8"
+              },
+              "M_DATA_Has_TUSER": {
+                "value": "Not_Required"
+              },
+              "Noise_Shaping": {
+                "value": "Auto"
+              },
+              "Output_Frequency1": {
+                "value": "1"
+              },
+              "Output_Selection": {
+                "value": "Sine"
+              },
+              "Output_Width": {
+                "value": "16"
+              },
+              "PINC1": {
+                "value": "1010001111010"
+              },
+              "Phase_Width": {
+                "value": "19"
+              },
+              "Spurious_Free_Dynamic_Range": {
+                "value": "96"
+              }
+            }
+          },
+          "dds_compiler_1": {
+            "vlnv": "xilinx.com:ip:dds_compiler:6.0",
+            "xci_name": "design_dds_dds_compiler_1_0",
+            "xci_path": "ip\\design_dds_dds_compiler_1_0\\design_dds_dds_compiler_1_0.xci",
+            "inst_hier_path": "Modulator/dds_compiler_1",
+            "parameters": {
+              "Frequency_Resolution": {
+                "value": "200"
+              },
+              "Has_ARESETn": {
+                "value": "true"
+              },
+              "Has_Phase_Out": {
+                "value": "false"
+              },
+              "Has_TREADY": {
+                "value": "false"
+              },
+              "Latency": {
+                "value": "8"
+              },
+              "M_DATA_Has_TUSER": {
+                "value": "Not_Required"
+              },
+              "Noise_Shaping": {
+                "value": "Auto"
+              },
+              "Output_Frequency1": {
+                "value": "0.001"
+              },
+              "Output_Selection": {
+                "value": "Sine"
+              },
+              "Output_Width": {
+                "value": "16"
+              },
+              "PINC1": {
+                "value": "101"
+              },
+              "Phase_Width": {
+                "value": "19"
+              },
+              "Spurious_Free_Dynamic_Range": {
+                "value": "96"
+              }
+            }
+          },
+          "mult_gen_0": {
+            "vlnv": "xilinx.com:ip:mult_gen:12.0",
+            "xci_name": "design_dds_mult_gen_0_0",
+            "xci_path": "ip\\design_dds_mult_gen_0_0\\design_dds_mult_gen_0_0.xci",
+            "inst_hier_path": "Modulator/mult_gen_0",
+            "parameters": {
+              "PortAType": {
+                "value": "Signed"
+              },
+              "PortAWidth": {
+                "value": "16"
+              },
+              "PortBType": {
+                "value": "Signed"
+              },
+              "PortBWidth": {
+                "value": "16"
+              },
+              "Use_Custom_Output_Width": {
+                "value": "false"
+              }
+            }
+          },
+          "carrier_scale_0": {
+            "vlnv": "xilinx.com:module_ref:carrier_scale:1.0",
+            "xci_name": "design_dds_carrier_scale_0_0",
+            "xci_path": "ip\\design_dds_carrier_scale_0_0\\design_dds_carrier_scale_0_0.xci",
+            "inst_hier_path": "Modulator/carrier_scale_0",
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "carrier_scale",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "clk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "FREQ_HZ": {
+                    "value": "100000000",
+                    "value_src": "user_prop"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "design_dds_aclk_0",
+                    "value_src": "default_prop"
+                  }
+                }
+              },
+              "tvalid": {
+                "direction": "I"
+              },
+              "din": {
+                "direction": "I",
+                "left": "15",
+                "right": "0"
+              },
+              "tvalid_o": {
+                "direction": "O"
+              },
+              "dout": {
+                "direction": "O",
+                "left": "15",
+                "right": "0"
+              }
+            }
+          }
+        },
+        "nets": {
+          "dds_compiler_1_m_axis_data_tvalid": {
+            "ports": [
+              "dds_compiler_1/m_axis_data_tvalid",
+              "envelope_16b_0/tvalid"
+            ]
+          },
+          "dds_compiler_0_m_axis_data_tdata": {
+            "ports": [
+              "dds_compiler_1/m_axis_data_tdata",
+              "envelope_16b_0/msg"
+            ]
+          },
+          "dds_compiler_0_m_axis_data_tvalid": {
+            "ports": [
+              "dds_compiler_0/m_axis_data_tvalid",
+              "carrier_scale_0/tvalid"
+            ]
+          },
+          "dds_compiler_1_m_axis_data_tdata": {
+            "ports": [
+              "dds_compiler_0/m_axis_data_tdata",
+              "carrier_scale_0/din"
+            ]
+          },
+          "aclk_0_1": {
+            "ports": [
+              "aclk_0",
+              "dds_compiler_0/aclk",
+              "dds_compiler_1/aclk",
+              "mult_gen_0/CLK",
+              "envelope_16b_0/clk",
+              "carrier_scale_0/clk"
+            ]
+          },
+          "envelope_16b_0_env": {
+            "ports": [
+              "envelope_16b_0/env",
+              "sin_1K",
+              "mult_gen_0/B"
+            ]
+          },
+          "carrier_scale_0_dout": {
+            "ports": [
+              "carrier_scale_0/dout",
+              "sin_1M",
+              "mult_gen_0/A"
+            ]
+          },
+          "rst_n_1": {
+            "ports": [
+              "rst_n",
+              "dds_compiler_1/aresetn",
+              "dds_compiler_0/aresetn"
+            ]
+          },
+          "mult_gen_0_P": {
+            "ports": [
+              "mult_gen_0/P",
+              "sin_modu"
+            ]
+          }
+        }
+      },
+      "dds_compiler_0": {
+        "vlnv": "xilinx.com:ip:dds_compiler:6.0",
+        "xci_name": "design_dds_dds_compiler_0_2",
+        "xci_path": "ip\\design_dds_dds_compiler_0_2\\design_dds_dds_compiler_0_2.xci",
+        "inst_hier_path": "dds_compiler_0",
+        "parameters": {
+          "Frequency_Resolution": {
+            "value": "200"
+          },
+          "Has_ARESETn": {
+            "value": "true"
+          },
+          "Has_Phase_Out": {
+            "value": "false"
+          },
+          "Has_TREADY": {
+            "value": "false"
+          },
+          "Latency": {
+            "value": "8"
+          },
+          "M_DATA_Has_TUSER": {
+            "value": "Not_Required"
+          },
+          "Noise_Shaping": {
+            "value": "Auto"
+          },
+          "Output_Frequency1": {
+            "value": "1"
+          },
+          "Output_Selection": {
+            "value": "Cosine"
+          },
+          "Output_Width": {
+            "value": "16"
+          },
+          "PINC1": {
+            "value": "1010001111010"
+          },
+          "Phase_Width": {
+            "value": "19"
+          },
+          "Spurious_Free_Dynamic_Range": {
+            "value": "96"
+          }
+        }
+      },
+      "fir_compiler_0": {
+        "vlnv": "xilinx.com:ip:fir_compiler:7.2",
+        "xci_name": "design_dds_fir_compiler_0_2",
+        "xci_path": "ip\\design_dds_fir_compiler_0_2\\design_dds_fir_compiler_0_2.xci",
+        "inst_hier_path": "fir_compiler_0",
+        "parameters": {
+          "Clock_Frequency": {
+            "value": "100"
+          },
+          "CoefficientSource": {
+            "value": "COE_File"
+          },
+          "Coefficient_File": {
+            "value": "../../../../../../am_coherent_fir.coe"
+          },
+          "Coefficient_Fractional_Bits": {
+            "value": "0"
+          },
+          "Coefficient_Sets": {
+            "value": "1"
+          },
+          "Coefficient_Sign": {
+            "value": "Signed"
+          },
+          "Coefficient_Structure": {
+            "value": "Inferred"
+          },
+          "Coefficient_Width": {
+            "value": "18"
+          },
+          "ColumnConfig": {
+            "value": "49"
+          },
+          "Data_Fractional_Bits": {
+            "value": "0"
+          },
+          "Data_Width": {
+            "value": "32"
+          },
+          "Filter_Architecture": {
+            "value": "Systolic_Multiply_Accumulate"
+          },
+          "Has_ARESETn": {
+            "value": "true"
+          },
+          "Output_Rounding_Mode": {
+            "value": "Full_Precision"
+          },
+          "Output_Width": {
+            "value": "50"
+          },
+          "Quantization": {
+            "value": "Integer_Coefficients"
+          },
+          "Sample_Frequency": {
+            "value": "100"
+          }
+        }
+      },
+      "xlconstant_0": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "design_dds_xlconstant_0_0",
+        "xci_path": "ip\\design_dds_xlconstant_0_0\\design_dds_xlconstant_0_0.xci",
+        "inst_hier_path": "xlconstant_0"
+      },
+      "xlslice_0": {
+        "vlnv": "xilinx.com:ip:xlslice:1.0",
+        "xci_name": "design_dds_xlslice_0_0",
+        "xci_path": "ip\\design_dds_xlslice_0_0\\design_dds_xlslice_0_0.xci",
+        "inst_hier_path": "xlslice_0",
+        "parameters": {
+          "DIN_FROM": {
+            "value": "55"
+          },
+          "DIN_TO": {
+            "value": "40"
+          },
+          "DIN_WIDTH": {
+            "value": "56"
+          },
+          "DOUT_WIDTH": {
+            "value": "16"
+          }
+        }
+      },
+      "xlslice_1": {
+        "vlnv": "xilinx.com:ip:xlslice:1.0",
+        "xci_name": "design_dds_xlslice_1_1",
+        "xci_path": "ip\\design_dds_xlslice_1_1\\design_dds_xlslice_1_1.xci",
+        "inst_hier_path": "xlslice_1",
+        "parameters": {
+          "DIN_FROM": {
+            "value": "31"
+          },
+          "DIN_TO": {
+            "value": "16"
+          },
+          "DOUT_WIDTH": {
+            "value": "16"
+          }
+        }
+      },
+      "mult_gen_0": {
+        "vlnv": "xilinx.com:ip:mult_gen:12.0",
+        "xci_name": "design_dds_mult_gen_0_3",
+        "xci_path": "ip\\design_dds_mult_gen_0_3\\design_dds_mult_gen_0_3.xci",
+        "inst_hier_path": "mult_gen_0",
+        "parameters": {
+          "PortAWidth": {
+            "value": "16"
+          },
+          "PortBWidth": {
+            "value": "16"
+          }
+        }
+      }
+    },
+    "nets": {
+      "aclk_0_1": {
+        "ports": [
+          "aclk_0",
+          "Modulator/aclk_0",
+          "dds_compiler_0/aclk",
+          "fir_compiler_0/aclk",
+          "mult_gen_0/CLK"
+        ]
+      },
+      "rst_n_1": {
+        "ports": [
+          "rst_n",
+          "Modulator/rst_n",
+          "dds_compiler_0/aresetn"
+        ]
+      },
+      "envelope_16b_0_env": {
+        "ports": [
+          "Modulator/sin_1K",
+          "sin_1K"
+        ]
+      },
+      "carrier_scale_0_dout": {
+        "ports": [
+          "Modulator/sin_1M",
+          "sin_1M"
+        ]
+      },
+      "xlconstant_0_dout": {
+        "ports": [
+          "xlconstant_0/dout",
+          "fir_compiler_0/s_axis_data_tvalid"
+        ]
+      },
+      "mult_gen_0_P": {
+        "ports": [
+          "Modulator/sin_modu",
+          "sin_modu",
+          "xlslice_1/Din"
+        ]
+      },
+      "fir_compiler_0_m_axis_data_tdata": {
+        "ports": [
+          "fir_compiler_0/m_axis_data_tdata",
+          "xlslice_0/Din"
+        ]
+      },
+      "xlslice_1_Dout": {
+        "ports": [
+          "xlslice_1/Dout",
+          "mult_gen_0/B"
+        ]
+      },
+      "mult_gen_0_P1": {
+        "ports": [
+          "mult_gen_0/P",
+          "fir_compiler_0/s_axis_data_tdata"
+        ]
+      },
+      "xlslice_0_Dout": {
+        "ports": [
+          "xlslice_0/Dout",
+          "AM_out"
+        ]
+      },
+      "dds_compiler_0_m_axis_data_tdata": {
+        "ports": [
+          "dds_compiler_0/m_axis_data_tdata",
+          "mult_gen_0/A"
+        ]
+      }
+    }
+  }
+}

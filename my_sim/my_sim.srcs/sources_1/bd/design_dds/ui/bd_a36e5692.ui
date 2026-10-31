@@ -1,0 +1,36 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"0.942841",
+   "Default View_TopLeft":"246,-331",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace port aclk_0 -pg 1 -lvl 0 -x -50 -y 20 -defaultsOSRD
+preplace port rst_n -pg 1 -lvl 0 -x -50 -y 260 -defaultsOSRD
+preplace portBus sin_1M -pg 1 -lvl 3 -x 1420 -y 310 -defaultsOSRD
+preplace portBus sin_1K -pg 1 -lvl 3 -x 1420 -y 290 -defaultsOSRD
+preplace portBus sin_modu -pg 1 -lvl 3 -x 1420 -y 370 -defaultsOSRD
+preplace portBus AM_out -pg 1 -lvl 3 -x 1420 -y 160 -defaultsOSRD
+preplace inst Modulator -pg 1 -lvl 2 -x 1180 -y 350 -defaultsOSRD
+preplace inst dds_compiler_0 -pg 1 -lvl 1 -x 590 -y 270 -defaultsOSRD
+preplace inst fir_compiler_0 -pg 1 -lvl 2 -x 1180 -y -200 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 2 -x 1180 -y 40 -defaultsOSRD
+preplace inst xlslice_0 -pg 1 -lvl 2 -x 1180 -y 160 -defaultsOSRD
+preplace inst xlslice_1 -pg 1 -lvl 1 -x 590 -y -70 -defaultsOSRD
+preplace inst mult_gen_0 -pg 1 -lvl 1 -x 590 -y -210 -defaultsOSRD
+preplace netloc aclk_0_1 1 0 2 -20J -130 750
+preplace netloc rst_n_1 1 0 2 -30J 360 N
+preplace netloc envelope_16b_0_env 1 2 1 1380 290n
+preplace netloc carrier_scale_0_dout 1 2 1 1400 310n
+preplace netloc xlconstant_0_dout 1 1 2 760 -20 1380
+preplace netloc mult_gen_0_P 1 0 3 10 350 770 270 1390
+preplace netloc fir_compiler_0_m_axis_data_tdata 1 1 2 770 -30 1380
+preplace netloc xlslice_1_Dout 1 0 2 -10 -290 740
+preplace netloc mult_gen_0_P1 1 1 1 760 -230n
+preplace netloc xlslice_0_Dout 1 2 1 N 160
+preplace netloc dds_compiler_0_m_axis_data_tdata 1 0 2 0 0 740
+levelinfo -pg 1 -50 590 1180 1420
+pagesize -pg 1 -db -bbox -sgen -140 -560 1570 550
+"
+}
+0

@@ -1,0 +1,18 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../envelope_16b.v" \
+"../../../../carrier_scale.v" \
+"../../../../mySim.gen/sources_1/bd/design_dds/ip/design_dds_envelope_16b_0_0/sim/design_dds_envelope_16b_0_0.v" \
+"../../../../mySim.gen/sources_1/bd/design_dds/ip/design_dds_carrier_scale_0_0/sim/design_dds_carrier_scale_0_0.v" \
+"../../../../mySim.gen/sources_1/bd/design_dds/ip/design_dds_xlconstant_0_0/sim/design_dds_xlconstant_0_0.v" \
+"../../../../mySim.gen/sources_1/bd/design_dds/ip/design_dds_xlslice_0_0/sim/design_dds_xlslice_0_0.v" \
+"../../../../mySim.gen/sources_1/bd/design_dds/ip/design_dds_xlslice_1_1/sim/design_dds_xlslice_1_1.v" \
+"../../../../mySim.gen/sources_1/bd/design_dds/sim/design_dds.v" \
+"../../../../mySim.gen/sources_1/bd/design_dds/hdl/design_dds_wrapper.v" \
+"../../../../my_sim.srcs/sim_1/new/dds_modu_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
