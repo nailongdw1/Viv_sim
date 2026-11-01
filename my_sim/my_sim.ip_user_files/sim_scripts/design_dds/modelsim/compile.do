@@ -67,9 +67,6 @@ vcom -work xil_defaultlib  -93 \
 vlog -work xil_defaultlib  -incr \
 "../../../../mySim.gen/sources_1/bd/design_dds/ip/design_dds_carrier_scale_0_0/sim/design_dds_carrier_scale_0_0.v" \
 
-vcom -work xil_defaultlib  -93 \
-"../../../../mySim.gen/sources_1/bd/design_dds/ip/design_dds_dds_compiler_0_2/sim/design_dds_dds_compiler_0_2.vhd" \
-
 vcom -work fir_compiler_v7_2_15  -93 \
 "../../../../my_sim.gen/sources_1/bd/design_dds/ipshared/9825/hdl/fir_compiler_v7_2_vh_rfs.vhd" \
 
@@ -88,10 +85,12 @@ vlog -work xlslice_v1_0_2  -incr \
 vlog -work xil_defaultlib  -incr \
 "../../../../mySim.gen/sources_1/bd/design_dds/ip/design_dds_xlslice_0_0/sim/design_dds_xlslice_0_0.v" \
 "../../../../mySim.gen/sources_1/bd/design_dds/ip/design_dds_xlslice_1_1/sim/design_dds_xlslice_1_1.v" \
-"../../../../mySim.gen/sources_1/bd/design_dds/sim/design_dds.v" \
 
 vcom -work xil_defaultlib  -93 \
 "../../../../mySim.gen/sources_1/bd/design_dds/ip/design_dds_mult_gen_0_3/sim/design_dds_mult_gen_0_3.vhd" \
+
+vlog -work xil_defaultlib  -incr \
+"../../../../mySim.gen/sources_1/bd/design_dds/sim/design_dds.v" \
 
 vlog -work xil_defaultlib \
 "glbl.v"

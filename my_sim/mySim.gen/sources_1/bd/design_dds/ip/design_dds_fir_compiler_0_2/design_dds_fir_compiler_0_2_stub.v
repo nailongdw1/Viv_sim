@@ -1,10 +1,10 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-// Date        : Sun Nov  1 00:12:18 2026
+// Date        : Sun Nov  1 00:05:38 2026
 // Host        : LAPTOP-G7S5V53H running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub
-//               c:/Users/ASUS/Xilinx_project/my_sim/my_sim/mySim.gen/sources_1/bd/design_dds/ip/design_dds_fir_compiler_0_2/design_dds_fir_compiler_0_2_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top design_dds_fir_compiler_0_2 -prefix
+//               design_dds_fir_compiler_0_2_ design_dds_fir_compiler_0_2_stub.v
 // Design      : design_dds_fir_compiler_0_2
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z020clg400-2

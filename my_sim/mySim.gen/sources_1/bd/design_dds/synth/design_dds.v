@@ -1,13 +1,61 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-//Date        : Sun Nov  1 00:23:38 2026
+//Date        : Sun Nov  1 13:46:50 2026
 //Host        : LAPTOP-G7S5V53H running 64-bit major release  (build 9200)
 //Command     : generate_target design_dds.bd
 //Design      : design_dds
 //Purpose     : IP block netlist
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
+
+module Demodulator_imp_1DSD5LK
+   (AM_out,
+    aclk_0,
+    rst_n,
+    sin_1M,
+    sin_modu);
+  output [15:0]AM_out;
+  input aclk_0;
+  input rst_n;
+  input [15:0]sin_1M;
+  input [31:0]sin_modu;
+
+  wire aclk_0_1;
+  wire [15:0]carrier_scale_0_dout;
+  wire [55:0]fir_compiler_0_m_axis_data_tdata;
+  wire [31:0]mult_gen_0_P;
+  wire [31:0]mult_gen_0_P1;
+  wire rst_n_1;
+  wire [0:0]xlconstant_0_dout;
+  wire [15:0]xlslice_0_Dout;
+  wire [15:0]xlslice_1_Dout;
+
+  assign AM_out[15:0] = xlslice_0_Dout;
+  assign aclk_0_1 = aclk_0;
+  assign carrier_scale_0_dout = sin_1M[15:0];
+  assign mult_gen_0_P = sin_modu[31:0];
+  assign rst_n_1 = rst_n;
+  design_dds_fir_compiler_0_2 fir_compiler_0
+       (.aclk(aclk_0_1),
+        .aresetn(rst_n_1),
+        .m_axis_data_tdata(fir_compiler_0_m_axis_data_tdata),
+        .s_axis_data_tdata(mult_gen_0_P1),
+        .s_axis_data_tvalid(xlconstant_0_dout));
+  design_dds_mult_gen_0_3 mult_gen_0
+       (.A(carrier_scale_0_dout),
+        .B(xlslice_1_Dout),
+        .CLK(aclk_0_1),
+        .P(mult_gen_0_P1));
+  design_dds_xlconstant_0_0 xlconstant_0
+       (.dout(xlconstant_0_dout));
+  design_dds_xlslice_0_0 xlslice_0
+       (.Din(fir_compiler_0_m_axis_data_tdata),
+        .Dout(xlslice_0_Dout));
+  design_dds_xlslice_1_1 xlslice_1
+       (.Din(mult_gen_0_P),
+        .Dout(xlslice_1_Dout));
+endmodule
 
 module Modulator_imp_1QZ5NNK
    (aclk_0,
@@ -63,7 +111,7 @@ module Modulator_imp_1QZ5NNK
         .P(mult_gen_0_P));
 endmodule
 
-(* CORE_GENERATION_INFO = "design_dds,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_dds,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=12,numReposBlks=11,numNonXlnxBlks=0,numHierBlks=1,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=2,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_dds.hwdef" *) 
+(* CORE_GENERATION_INFO = "design_dds,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_dds,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=12,numReposBlks=10,numNonXlnxBlks=0,numHierBlks=2,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=2,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_dds.hwdef" *) 
 module design_dds
    (AM_out,
     aclk_0,
@@ -80,15 +128,10 @@ module design_dds
 
   wire aclk_0_1;
   wire [15:0]carrier_scale_0_dout;
-  wire [15:0]dds_compiler_0_m_axis_data_tdata;
   wire [15:0]envelope_16b_0_env;
-  wire [55:0]fir_compiler_0_m_axis_data_tdata;
   wire [31:0]mult_gen_0_P;
-  wire [31:0]mult_gen_0_P1;
   wire rst_n_1;
-  wire [0:0]xlconstant_0_dout;
   wire [15:0]xlslice_0_Dout;
-  wire [15:0]xlslice_1_Dout;
 
   assign AM_out[15:0] = xlslice_0_Dout;
   assign aclk_0_1 = aclk_0;
@@ -96,33 +139,16 @@ module design_dds
   assign sin_1K[15:0] = envelope_16b_0_env;
   assign sin_1M[15:0] = carrier_scale_0_dout;
   assign sin_modu[31:0] = mult_gen_0_P;
+  Demodulator_imp_1DSD5LK Demodulator
+       (.AM_out(xlslice_0_Dout),
+        .aclk_0(aclk_0_1),
+        .rst_n(rst_n_1),
+        .sin_1M(carrier_scale_0_dout),
+        .sin_modu(mult_gen_0_P));
   Modulator_imp_1QZ5NNK Modulator
        (.aclk_0(aclk_0_1),
         .rst_n(rst_n_1),
         .sin_1K(envelope_16b_0_env),
         .sin_1M(carrier_scale_0_dout),
         .sin_modu(mult_gen_0_P));
-  design_dds_dds_compiler_0_2 dds_compiler_0
-       (.aclk(aclk_0_1),
-        .aresetn(rst_n_1),
-        .m_axis_data_tdata(dds_compiler_0_m_axis_data_tdata));
-  design_dds_fir_compiler_0_2 fir_compiler_0
-       (.aclk(aclk_0_1),
-        .aresetn(1'b1),
-        .m_axis_data_tdata(fir_compiler_0_m_axis_data_tdata),
-        .s_axis_data_tdata(mult_gen_0_P1),
-        .s_axis_data_tvalid(xlconstant_0_dout));
-  design_dds_mult_gen_0_3 mult_gen_0
-       (.A(dds_compiler_0_m_axis_data_tdata),
-        .B(xlslice_1_Dout),
-        .CLK(aclk_0_1),
-        .P(mult_gen_0_P1));
-  design_dds_xlconstant_0_0 xlconstant_0
-       (.dout(xlconstant_0_dout));
-  design_dds_xlslice_0_0 xlslice_0
-       (.Din(fir_compiler_0_m_axis_data_tdata),
-        .Dout(xlslice_0_Dout));
-  design_dds_xlslice_1_1 xlslice_1
-       (.Din(mult_gen_0_P),
-        .Dout(xlslice_1_Dout));
 endmodule

@@ -254,6 +254,114 @@ proc create_hier_cell_Modulator { parentCell nameHier } {
   current_bd_instance $oldCurInst
 }
 
+# Hierarchical cell: Demodulator
+proc create_hier_cell_Demodulator { parentCell nameHier } {
+
+  variable script_folder
+
+  if { $parentCell eq "" || $nameHier eq "" } {
+     catch {common::send_gid_msg -ssname BD::TCL -id 2092 -severity "ERROR" "create_hier_cell_Demodulator() - Empty argument(s)!"}
+     return
+  }
+
+  # Get object for parentCell
+  set parentObj [get_bd_cells $parentCell]
+  if { $parentObj == "" } {
+     catch {common::send_gid_msg -ssname BD::TCL -id 2090 -severity "ERROR" "Unable to find parent cell <$parentCell>!"}
+     return
+  }
+
+  # Make sure parentObj is hier blk
+  set parentType [get_property TYPE $parentObj]
+  if { $parentType ne "hier" } {
+     catch {common::send_gid_msg -ssname BD::TCL -id 2091 -severity "ERROR" "Parent <$parentObj> has TYPE = <$parentType>. Expected to be <hier>."}
+     return
+  }
+
+  # Save current instance; Restore later
+  set oldCurInst [current_bd_instance .]
+
+  # Set parent object as current
+  current_bd_instance $parentObj
+
+  # Create cell and set as current instance
+  set hier_obj [create_bd_cell -type hier $nameHier]
+  current_bd_instance $hier_obj
+
+  # Create interface pins
+
+  # Create pins
+  create_bd_pin -dir O -from 15 -to 0 AM_out
+  create_bd_pin -dir I -type clk aclk_0
+  create_bd_pin -dir I -type rst rst_n
+  create_bd_pin -dir I -from 15 -to 0 -type data sin_1M
+  create_bd_pin -dir I -from 31 -to 0 -type data sin_modu
+
+  # Create instance: fir_compiler_0, and set properties
+  set fir_compiler_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:fir_compiler:7.2 fir_compiler_0 ]
+  set_property -dict [ list \
+   CONFIG.Clock_Frequency {100} \
+   CONFIG.CoefficientSource {COE_File} \
+   CONFIG.Coefficient_File {../../../../../../coh_fir.coe} \
+   CONFIG.Coefficient_Fractional_Bits {0} \
+   CONFIG.Coefficient_Sets {1} \
+   CONFIG.Coefficient_Sign {Signed} \
+   CONFIG.Coefficient_Structure {Inferred} \
+   CONFIG.Coefficient_Width {18} \
+   CONFIG.ColumnConfig {32} \
+   CONFIG.Data_Fractional_Bits {0} \
+   CONFIG.Data_Width {32} \
+   CONFIG.Filter_Architecture {Systolic_Multiply_Accumulate} \
+   CONFIG.Has_ARESETn {true} \
+   CONFIG.Output_Rounding_Mode {Full_Precision} \
+   CONFIG.Output_Width {53} \
+   CONFIG.Quantization {Integer_Coefficients} \
+   CONFIG.Sample_Frequency {100} \
+ ] $fir_compiler_0
+
+  # Create instance: mult_gen_0, and set properties
+  set mult_gen_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:mult_gen:12.0 mult_gen_0 ]
+  set_property -dict [ list \
+   CONFIG.OutputWidthHigh {31} \
+   CONFIG.PortAWidth {16} \
+   CONFIG.PortBWidth {16} \
+ ] $mult_gen_0
+
+  # Create instance: xlconstant_0, and set properties
+  set xlconstant_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_0 ]
+
+  # Create instance: xlslice_0, and set properties
+  set xlslice_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlslice:1.0 xlslice_0 ]
+  set_property -dict [ list \
+   CONFIG.DIN_FROM {55} \
+   CONFIG.DIN_TO {40} \
+   CONFIG.DIN_WIDTH {56} \
+   CONFIG.DOUT_WIDTH {16} \
+ ] $xlslice_0
+
+  # Create instance: xlslice_1, and set properties
+  set xlslice_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlslice:1.0 xlslice_1 ]
+  set_property -dict [ list \
+   CONFIG.DIN_FROM {31} \
+   CONFIG.DIN_TO {16} \
+   CONFIG.DOUT_WIDTH {16} \
+ ] $xlslice_1
+
+  # Create port connections
+  connect_bd_net -net aclk_0_1 [get_bd_pins aclk_0] [get_bd_pins fir_compiler_0/aclk] [get_bd_pins mult_gen_0/CLK]
+  connect_bd_net -net carrier_scale_0_dout [get_bd_pins sin_1M] [get_bd_pins mult_gen_0/A]
+  connect_bd_net -net fir_compiler_0_m_axis_data_tdata [get_bd_pins fir_compiler_0/m_axis_data_tdata] [get_bd_pins xlslice_0/Din]
+  connect_bd_net -net mult_gen_0_P [get_bd_pins sin_modu] [get_bd_pins xlslice_1/Din]
+  connect_bd_net -net mult_gen_0_P1 [get_bd_pins fir_compiler_0/s_axis_data_tdata] [get_bd_pins mult_gen_0/P]
+  connect_bd_net -net rst_n_1 [get_bd_pins rst_n] [get_bd_pins fir_compiler_0/aresetn]
+  connect_bd_net -net xlconstant_0_dout [get_bd_pins fir_compiler_0/s_axis_data_tvalid] [get_bd_pins xlconstant_0/dout]
+  connect_bd_net -net xlslice_0_Dout [get_bd_pins AM_out] [get_bd_pins xlslice_0/Dout]
+  connect_bd_net -net xlslice_1_Dout [get_bd_pins mult_gen_0/B] [get_bd_pins xlslice_1/Dout]
+
+  # Restore current instance
+  current_bd_instance $oldCurInst
+}
+
 
 # Procedure to create entire design; Provide argument to make
 # procedure reusable. If parentCell is "", will use root.
@@ -303,89 +411,19 @@ proc create_root_design { parentCell } {
   set sin_1M [ create_bd_port -dir O -from 15 -to 0 sin_1M ]
   set sin_modu [ create_bd_port -dir O -from 31 -to 0 -type data sin_modu ]
 
+  # Create instance: Demodulator
+  create_hier_cell_Demodulator [current_bd_instance .] Demodulator
+
   # Create instance: Modulator
   create_hier_cell_Modulator [current_bd_instance .] Modulator
 
-  # Create instance: dds_compiler_0, and set properties
-  set dds_compiler_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:dds_compiler:6.0 dds_compiler_0 ]
-  set_property -dict [ list \
-   CONFIG.Frequency_Resolution {200} \
-   CONFIG.Has_ARESETn {true} \
-   CONFIG.Has_Phase_Out {false} \
-   CONFIG.Has_TREADY {false} \
-   CONFIG.Latency {8} \
-   CONFIG.M_DATA_Has_TUSER {Not_Required} \
-   CONFIG.Noise_Shaping {Auto} \
-   CONFIG.Output_Frequency1 {1} \
-   CONFIG.Output_Selection {Cosine} \
-   CONFIG.Output_Width {16} \
-   CONFIG.PINC1 {1010001111010} \
-   CONFIG.Phase_Width {19} \
-   CONFIG.Spurious_Free_Dynamic_Range {96} \
- ] $dds_compiler_0
-
-  # Create instance: fir_compiler_0, and set properties
-  set fir_compiler_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:fir_compiler:7.2 fir_compiler_0 ]
-  set_property -dict [ list \
-   CONFIG.Clock_Frequency {100} \
-   CONFIG.CoefficientSource {COE_File} \
-   CONFIG.Coefficient_File {../../../../../../am_coherent_fir.coe} \
-   CONFIG.Coefficient_Fractional_Bits {0} \
-   CONFIG.Coefficient_Sets {1} \
-   CONFIG.Coefficient_Sign {Signed} \
-   CONFIG.Coefficient_Structure {Inferred} \
-   CONFIG.Coefficient_Width {18} \
-   CONFIG.ColumnConfig {49} \
-   CONFIG.Data_Fractional_Bits {0} \
-   CONFIG.Data_Width {32} \
-   CONFIG.Filter_Architecture {Systolic_Multiply_Accumulate} \
-   CONFIG.Has_ARESETn {true} \
-   CONFIG.Output_Rounding_Mode {Full_Precision} \
-   CONFIG.Output_Width {50} \
-   CONFIG.Quantization {Integer_Coefficients} \
-   CONFIG.Sample_Frequency {100} \
- ] $fir_compiler_0
-
-  # Create instance: mult_gen_0, and set properties
-  set mult_gen_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:mult_gen:12.0 mult_gen_0 ]
-  set_property -dict [ list \
-   CONFIG.OutputWidthHigh {31} \
-   CONFIG.PortAWidth {16} \
-   CONFIG.PortBWidth {16} \
- ] $mult_gen_0
-
-  # Create instance: xlconstant_0, and set properties
-  set xlconstant_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_0 ]
-
-  # Create instance: xlslice_0, and set properties
-  set xlslice_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlslice:1.0 xlslice_0 ]
-  set_property -dict [ list \
-   CONFIG.DIN_FROM {55} \
-   CONFIG.DIN_TO {40} \
-   CONFIG.DIN_WIDTH {56} \
-   CONFIG.DOUT_WIDTH {16} \
- ] $xlslice_0
-
-  # Create instance: xlslice_1, and set properties
-  set xlslice_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlslice:1.0 xlslice_1 ]
-  set_property -dict [ list \
-   CONFIG.DIN_FROM {31} \
-   CONFIG.DIN_TO {16} \
-   CONFIG.DOUT_WIDTH {16} \
- ] $xlslice_1
-
   # Create port connections
-  connect_bd_net -net aclk_0_1 [get_bd_ports aclk_0] [get_bd_pins Modulator/aclk_0] [get_bd_pins dds_compiler_0/aclk] [get_bd_pins fir_compiler_0/aclk] [get_bd_pins mult_gen_0/CLK]
-  connect_bd_net -net carrier_scale_0_dout [get_bd_ports sin_1M] [get_bd_pins Modulator/sin_1M]
-  connect_bd_net -net dds_compiler_0_m_axis_data_tdata [get_bd_pins dds_compiler_0/m_axis_data_tdata] [get_bd_pins mult_gen_0/A]
+  connect_bd_net -net aclk_0_1 [get_bd_ports aclk_0] [get_bd_pins Demodulator/aclk_0] [get_bd_pins Modulator/aclk_0]
+  connect_bd_net -net carrier_scale_0_dout [get_bd_ports sin_1M] [get_bd_pins Demodulator/sin_1M] [get_bd_pins Modulator/sin_1M]
   connect_bd_net -net envelope_16b_0_env [get_bd_ports sin_1K] [get_bd_pins Modulator/sin_1K]
-  connect_bd_net -net fir_compiler_0_m_axis_data_tdata [get_bd_pins fir_compiler_0/m_axis_data_tdata] [get_bd_pins xlslice_0/Din]
-  connect_bd_net -net mult_gen_0_P [get_bd_ports sin_modu] [get_bd_pins Modulator/sin_modu] [get_bd_pins xlslice_1/Din]
-  connect_bd_net -net mult_gen_0_P1 [get_bd_pins fir_compiler_0/s_axis_data_tdata] [get_bd_pins mult_gen_0/P]
-  connect_bd_net -net rst_n_1 [get_bd_ports rst_n] [get_bd_pins Modulator/rst_n] [get_bd_pins dds_compiler_0/aresetn]
-  connect_bd_net -net xlconstant_0_dout [get_bd_pins fir_compiler_0/s_axis_data_tvalid] [get_bd_pins xlconstant_0/dout]
-  connect_bd_net -net xlslice_0_Dout [get_bd_ports AM_out] [get_bd_pins xlslice_0/Dout]
-  connect_bd_net -net xlslice_1_Dout [get_bd_pins mult_gen_0/B] [get_bd_pins xlslice_1/Dout]
+  connect_bd_net -net mult_gen_0_P [get_bd_ports sin_modu] [get_bd_pins Demodulator/sin_modu] [get_bd_pins Modulator/sin_modu]
+  connect_bd_net -net rst_n_1 [get_bd_ports rst_n] [get_bd_pins Demodulator/rst_n] [get_bd_pins Modulator/rst_n]
+  connect_bd_net -net xlslice_0_Dout [get_bd_ports AM_out] [get_bd_pins Demodulator/AM_out]
 
   # Create address segments
 

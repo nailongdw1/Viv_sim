@@ -18,12 +18,13 @@
         "mult_gen_0": "",
         "carrier_scale_0": ""
       },
-      "dds_compiler_0": "",
-      "fir_compiler_0": "",
-      "xlconstant_0": "",
-      "xlslice_0": "",
-      "xlslice_1": "",
-      "mult_gen_0": ""
+      "Demodulator": {
+        "mult_gen_0": "",
+        "fir_compiler_0": "",
+        "xlconstant_0": "",
+        "xlslice_1": "",
+        "xlslice_0": ""
+      }
     },
     "ports": {
       "aclk_0": {
@@ -394,166 +395,207 @@
           }
         }
       },
-      "dds_compiler_0": {
-        "vlnv": "xilinx.com:ip:dds_compiler:6.0",
-        "xci_name": "design_dds_dds_compiler_0_2",
-        "xci_path": "ip\\design_dds_dds_compiler_0_2\\design_dds_dds_compiler_0_2.xci",
-        "inst_hier_path": "dds_compiler_0",
-        "parameters": {
-          "Frequency_Resolution": {
-            "value": "200"
+      "Demodulator": {
+        "ports": {
+          "aclk_0": {
+            "type": "clk",
+            "direction": "I"
           },
-          "Has_ARESETn": {
-            "value": "true"
+          "sin_1M": {
+            "type": "data",
+            "direction": "I",
+            "left": "15",
+            "right": "0"
           },
-          "Has_Phase_Out": {
-            "value": "false"
+          "rst_n": {
+            "type": "rst",
+            "direction": "I"
           },
-          "Has_TREADY": {
-            "value": "false"
+          "sin_modu": {
+            "type": "data",
+            "direction": "I",
+            "left": "31",
+            "right": "0"
           },
-          "Latency": {
-            "value": "8"
-          },
-          "M_DATA_Has_TUSER": {
-            "value": "Not_Required"
-          },
-          "Noise_Shaping": {
-            "value": "Auto"
-          },
-          "Output_Frequency1": {
-            "value": "1"
-          },
-          "Output_Selection": {
-            "value": "Cosine"
-          },
-          "Output_Width": {
-            "value": "16"
-          },
-          "PINC1": {
-            "value": "1010001111010"
-          },
-          "Phase_Width": {
-            "value": "19"
-          },
-          "Spurious_Free_Dynamic_Range": {
-            "value": "96"
+          "AM_out": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
           }
-        }
-      },
-      "fir_compiler_0": {
-        "vlnv": "xilinx.com:ip:fir_compiler:7.2",
-        "xci_name": "design_dds_fir_compiler_0_2",
-        "xci_path": "ip\\design_dds_fir_compiler_0_2\\design_dds_fir_compiler_0_2.xci",
-        "inst_hier_path": "fir_compiler_0",
-        "parameters": {
-          "Clock_Frequency": {
-            "value": "100"
+        },
+        "components": {
+          "mult_gen_0": {
+            "vlnv": "xilinx.com:ip:mult_gen:12.0",
+            "xci_name": "design_dds_mult_gen_0_3",
+            "xci_path": "ip\\design_dds_mult_gen_0_3\\design_dds_mult_gen_0_3.xci",
+            "inst_hier_path": "Demodulator/mult_gen_0",
+            "parameters": {
+              "PortAWidth": {
+                "value": "16"
+              },
+              "PortBWidth": {
+                "value": "16"
+              }
+            }
           },
-          "CoefficientSource": {
-            "value": "COE_File"
+          "fir_compiler_0": {
+            "vlnv": "xilinx.com:ip:fir_compiler:7.2",
+            "xci_name": "design_dds_fir_compiler_0_2",
+            "xci_path": "ip\\design_dds_fir_compiler_0_2\\design_dds_fir_compiler_0_2.xci",
+            "inst_hier_path": "Demodulator/fir_compiler_0",
+            "parameters": {
+              "Clock_Frequency": {
+                "value": "100"
+              },
+              "CoefficientSource": {
+                "value": "COE_File"
+              },
+              "Coefficient_File": {
+                "value": "../../../../../../coh_fir.coe"
+              },
+              "Coefficient_Fractional_Bits": {
+                "value": "0"
+              },
+              "Coefficient_Sets": {
+                "value": "1"
+              },
+              "Coefficient_Sign": {
+                "value": "Signed"
+              },
+              "Coefficient_Structure": {
+                "value": "Inferred"
+              },
+              "Coefficient_Width": {
+                "value": "18"
+              },
+              "ColumnConfig": {
+                "value": "32"
+              },
+              "Data_Fractional_Bits": {
+                "value": "0"
+              },
+              "Data_Width": {
+                "value": "32"
+              },
+              "Filter_Architecture": {
+                "value": "Systolic_Multiply_Accumulate"
+              },
+              "Has_ARESETn": {
+                "value": "true"
+              },
+              "Output_Rounding_Mode": {
+                "value": "Full_Precision"
+              },
+              "Output_Width": {
+                "value": "53"
+              },
+              "Quantization": {
+                "value": "Integer_Coefficients"
+              },
+              "Sample_Frequency": {
+                "value": "100"
+              }
+            }
           },
-          "Coefficient_File": {
-            "value": "../../../../../../am_coherent_fir.coe"
+          "xlconstant_0": {
+            "vlnv": "xilinx.com:ip:xlconstant:1.1",
+            "xci_name": "design_dds_xlconstant_0_0",
+            "xci_path": "ip\\design_dds_xlconstant_0_0\\design_dds_xlconstant_0_0.xci",
+            "inst_hier_path": "Demodulator/xlconstant_0"
           },
-          "Coefficient_Fractional_Bits": {
-            "value": "0"
+          "xlslice_1": {
+            "vlnv": "xilinx.com:ip:xlslice:1.0",
+            "xci_name": "design_dds_xlslice_1_1",
+            "xci_path": "ip\\design_dds_xlslice_1_1\\design_dds_xlslice_1_1.xci",
+            "inst_hier_path": "Demodulator/xlslice_1",
+            "parameters": {
+              "DIN_FROM": {
+                "value": "31"
+              },
+              "DIN_TO": {
+                "value": "16"
+              },
+              "DOUT_WIDTH": {
+                "value": "16"
+              }
+            }
           },
-          "Coefficient_Sets": {
-            "value": "1"
-          },
-          "Coefficient_Sign": {
-            "value": "Signed"
-          },
-          "Coefficient_Structure": {
-            "value": "Inferred"
-          },
-          "Coefficient_Width": {
-            "value": "18"
-          },
-          "ColumnConfig": {
-            "value": "49"
-          },
-          "Data_Fractional_Bits": {
-            "value": "0"
-          },
-          "Data_Width": {
-            "value": "32"
-          },
-          "Filter_Architecture": {
-            "value": "Systolic_Multiply_Accumulate"
-          },
-          "Has_ARESETn": {
-            "value": "true"
-          },
-          "Output_Rounding_Mode": {
-            "value": "Full_Precision"
-          },
-          "Output_Width": {
-            "value": "50"
-          },
-          "Quantization": {
-            "value": "Integer_Coefficients"
-          },
-          "Sample_Frequency": {
-            "value": "100"
+          "xlslice_0": {
+            "vlnv": "xilinx.com:ip:xlslice:1.0",
+            "xci_name": "design_dds_xlslice_0_0",
+            "xci_path": "ip\\design_dds_xlslice_0_0\\design_dds_xlslice_0_0.xci",
+            "inst_hier_path": "Demodulator/xlslice_0",
+            "parameters": {
+              "DIN_FROM": {
+                "value": "55"
+              },
+              "DIN_TO": {
+                "value": "40"
+              },
+              "DIN_WIDTH": {
+                "value": "56"
+              },
+              "DOUT_WIDTH": {
+                "value": "16"
+              }
+            }
           }
-        }
-      },
-      "xlconstant_0": {
-        "vlnv": "xilinx.com:ip:xlconstant:1.1",
-        "xci_name": "design_dds_xlconstant_0_0",
-        "xci_path": "ip\\design_dds_xlconstant_0_0\\design_dds_xlconstant_0_0.xci",
-        "inst_hier_path": "xlconstant_0"
-      },
-      "xlslice_0": {
-        "vlnv": "xilinx.com:ip:xlslice:1.0",
-        "xci_name": "design_dds_xlslice_0_0",
-        "xci_path": "ip\\design_dds_xlslice_0_0\\design_dds_xlslice_0_0.xci",
-        "inst_hier_path": "xlslice_0",
-        "parameters": {
-          "DIN_FROM": {
-            "value": "55"
+        },
+        "nets": {
+          "xlslice_1_Dout": {
+            "ports": [
+              "xlslice_1/Dout",
+              "mult_gen_0/B"
+            ]
           },
-          "DIN_TO": {
-            "value": "40"
+          "mult_gen_0_P1": {
+            "ports": [
+              "mult_gen_0/P",
+              "fir_compiler_0/s_axis_data_tdata"
+            ]
           },
-          "DIN_WIDTH": {
-            "value": "56"
+          "xlconstant_0_dout": {
+            "ports": [
+              "xlconstant_0/dout",
+              "fir_compiler_0/s_axis_data_tvalid"
+            ]
           },
-          "DOUT_WIDTH": {
-            "value": "16"
-          }
-        }
-      },
-      "xlslice_1": {
-        "vlnv": "xilinx.com:ip:xlslice:1.0",
-        "xci_name": "design_dds_xlslice_1_1",
-        "xci_path": "ip\\design_dds_xlslice_1_1\\design_dds_xlslice_1_1.xci",
-        "inst_hier_path": "xlslice_1",
-        "parameters": {
-          "DIN_FROM": {
-            "value": "31"
+          "fir_compiler_0_m_axis_data_tdata": {
+            "ports": [
+              "fir_compiler_0/m_axis_data_tdata",
+              "xlslice_0/Din"
+            ]
           },
-          "DIN_TO": {
-            "value": "16"
+          "aclk_0_1": {
+            "ports": [
+              "aclk_0",
+              "fir_compiler_0/aclk",
+              "mult_gen_0/CLK"
+            ]
           },
-          "DOUT_WIDTH": {
-            "value": "16"
-          }
-        }
-      },
-      "mult_gen_0": {
-        "vlnv": "xilinx.com:ip:mult_gen:12.0",
-        "xci_name": "design_dds_mult_gen_0_3",
-        "xci_path": "ip\\design_dds_mult_gen_0_3\\design_dds_mult_gen_0_3.xci",
-        "inst_hier_path": "mult_gen_0",
-        "parameters": {
-          "PortAWidth": {
-            "value": "16"
+          "carrier_scale_0_dout": {
+            "ports": [
+              "sin_1M",
+              "mult_gen_0/A"
+            ]
           },
-          "PortBWidth": {
-            "value": "16"
+          "rst_n_1": {
+            "ports": [
+              "rst_n",
+              "fir_compiler_0/aresetn"
+            ]
+          },
+          "mult_gen_0_P": {
+            "ports": [
+              "sin_modu",
+              "xlslice_1/Din"
+            ]
+          },
+          "xlslice_0_Dout": {
+            "ports": [
+              "xlslice_0/Dout",
+              "AM_out"
+            ]
           }
         }
       }
@@ -563,16 +605,14 @@
         "ports": [
           "aclk_0",
           "Modulator/aclk_0",
-          "dds_compiler_0/aclk",
-          "fir_compiler_0/aclk",
-          "mult_gen_0/CLK"
+          "Demodulator/aclk_0"
         ]
       },
       "rst_n_1": {
         "ports": [
           "rst_n",
           "Modulator/rst_n",
-          "dds_compiler_0/aresetn"
+          "Demodulator/rst_n"
         ]
       },
       "envelope_16b_0_env": {
@@ -584,50 +624,21 @@
       "carrier_scale_0_dout": {
         "ports": [
           "Modulator/sin_1M",
-          "sin_1M"
-        ]
-      },
-      "xlconstant_0_dout": {
-        "ports": [
-          "xlconstant_0/dout",
-          "fir_compiler_0/s_axis_data_tvalid"
+          "sin_1M",
+          "Demodulator/sin_1M"
         ]
       },
       "mult_gen_0_P": {
         "ports": [
           "Modulator/sin_modu",
           "sin_modu",
-          "xlslice_1/Din"
-        ]
-      },
-      "fir_compiler_0_m_axis_data_tdata": {
-        "ports": [
-          "fir_compiler_0/m_axis_data_tdata",
-          "xlslice_0/Din"
-        ]
-      },
-      "xlslice_1_Dout": {
-        "ports": [
-          "xlslice_1/Dout",
-          "mult_gen_0/B"
-        ]
-      },
-      "mult_gen_0_P1": {
-        "ports": [
-          "mult_gen_0/P",
-          "fir_compiler_0/s_axis_data_tdata"
+          "Demodulator/sin_modu"
         ]
       },
       "xlslice_0_Dout": {
         "ports": [
-          "xlslice_0/Dout",
+          "Demodulator/AM_out",
           "AM_out"
-        ]
-      },
-      "dds_compiler_0_m_axis_data_tdata": {
-        "ports": [
-          "dds_compiler_0/m_axis_data_tdata",
-          "mult_gen_0/A"
         ]
       }
     }

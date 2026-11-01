@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="54" Path="C:/Users/ASUS/Xilinx_project/my_sim/my_sim/my_sim.xpr">
+<Project Version="7" Minor="54" Path="C:/Users/ASUS/Xilinx_project/my_sim/Viv_sim/my_sim/my_sim.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="a3b676c845cd4d208247713a439efc99"/>
@@ -44,20 +44,20 @@
     <Option Name="IPUserFilesDir" Val="$PIPUSERFILESDIR"/>
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
-    <Option Name="WTXSimLaunchSim" Val="16"/>
+    <Option Name="WTXSimLaunchSim" Val="22"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="9"/>
-    <Option Name="WTModelSimExportSim" Val="9"/>
-    <Option Name="WTQuestaExportSim" Val="9"/>
-    <Option Name="WTIesExportSim" Val="9"/>
-    <Option Name="WTVcsExportSim" Val="9"/>
-    <Option Name="WTRivieraExportSim" Val="9"/>
-    <Option Name="WTActivehdlExportSim" Val="9"/>
+    <Option Name="WTXSimExportSim" Val="16"/>
+    <Option Name="WTModelSimExportSim" Val="16"/>
+    <Option Name="WTQuestaExportSim" Val="16"/>
+    <Option Name="WTIesExportSim" Val="16"/>
+    <Option Name="WTVcsExportSim" Val="16"/>
+    <Option Name="WTRivieraExportSim" Val="16"/>
+    <Option Name="WTActivehdlExportSim" Val="16"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -93,8 +93,8 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="design_dds.bd" FileRelPathName="ip/design_dds_dds_compiler_0_0/design_dds_dds_compiler_0_0.xci">
-          <Proxy FileSetName="design_dds_dds_compiler_0_0"/>
+        <CompFileExtendedInfo CompFileName="design_dds.bd" FileRelPathName="ip/design_dds_mult_gen_0_0/design_dds_mult_gen_0_0.xci">
+          <Proxy FileSetName="design_dds_mult_gen_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="design_dds.bd" FileRelPathName="ip/design_dds_envelope_16b_0_0/design_dds_envelope_16b_0_0.xci">
           <Proxy FileSetName="design_dds_envelope_16b_0_0"/>
@@ -102,17 +102,11 @@
         <CompFileExtendedInfo CompFileName="design_dds.bd" FileRelPathName="ip/design_dds_dds_compiler_1_0/design_dds_dds_compiler_1_0.xci">
           <Proxy FileSetName="design_dds_dds_compiler_1_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="design_dds.bd" FileRelPathName="ip/design_dds_mult_gen_0_0/design_dds_mult_gen_0_0.xci">
-          <Proxy FileSetName="design_dds_mult_gen_0_0"/>
+        <CompFileExtendedInfo CompFileName="design_dds.bd" FileRelPathName="ip/design_dds_dds_compiler_0_0/design_dds_dds_compiler_0_0.xci">
+          <Proxy FileSetName="design_dds_dds_compiler_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="design_dds.bd" FileRelPathName="ip/design_dds_carrier_scale_0_0/design_dds_carrier_scale_0_0.xci">
           <Proxy FileSetName="design_dds_carrier_scale_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="design_dds.bd" FileRelPathName="ip/design_dds_fir_compiler_0_2/design_dds_fir_compiler_0_2.xci">
-          <Proxy FileSetName="design_dds_fir_compiler_0_2"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="design_dds.bd" FileRelPathName="ip/design_dds_dds_compiler_0_2/design_dds_dds_compiler_0_2.xci">
-          <Proxy FileSetName="design_dds_dds_compiler_0_2"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PPRDIR/mySim.gen/sources_1/bd/design_dds/hdl/design_dds_wrapper.v">
@@ -144,7 +138,7 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../../mySim/coh_fir.coe">
+      <File Path="$PPRDIR/../../../mySim/coh_fir.coe">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -232,18 +226,6 @@
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
-    <FileSet Name="design_dds_dds_compiler_0_2" Type="BlockSrcs" RelSrcDir="$PSRCDIR/design_dds_dds_compiler_0_2" RelGenDir="$PGENDIR/design_dds_dds_compiler_0_2">
-      <Config>
-        <Option Name="TopModule" Val="design_dds_dds_compiler_0_2"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="design_dds_fir_compiler_0_2" Type="BlockSrcs" RelSrcDir="$PSRCDIR/design_dds_fir_compiler_0_2" RelGenDir="$PGENDIR/design_dds_fir_compiler_0_2">
-      <Config>
-        <Option Name="TopModule" Val="design_dds_fir_compiler_0_2"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
   </FileSets>
   <Simulators>
     <Simulator Name="XSim">
@@ -264,7 +246,7 @@
     </Simulator>
   </Simulators>
   <Runs Version="1" Minor="15">
-    <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7z020clg400-2" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" IncludeInArchive="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/synth_1">
+    <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7z020clg400-2" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" IncludeInArchive="true" AutoIncrementalDir="$PPRDIR/../../my_sim/my_sim.srcs/utils_1/imports/synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020"/>
         <Step Id="synth_design"/>
@@ -273,17 +255,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="design_dds_envelope_16b_0_0_synth_1" Type="Ft3:Synth" SrcSet="design_dds_envelope_16b_0_0" Part="xc7z020clg400-2" ConstrsSet="design_dds_envelope_16b_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/design_dds_envelope_16b_0_0_synth_1" IncludeInArchive="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/design_dds_envelope_16b_0_0_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2020"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="design_dds_dds_compiler_0_0_synth_1" Type="Ft3:Synth" SrcSet="design_dds_dds_compiler_0_0" Part="xc7z020clg400-2" ConstrsSet="design_dds_dds_compiler_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/design_dds_dds_compiler_0_0_synth_1" IncludeInArchive="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/design_dds_dds_compiler_0_0_synth_1">
+    <Run Id="design_dds_envelope_16b_0_0_synth_1" Type="Ft3:Synth" SrcSet="design_dds_envelope_16b_0_0" Part="xc7z020clg400-2" ConstrsSet="design_dds_envelope_16b_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/design_dds_envelope_16b_0_0_synth_1" IncludeInArchive="true" AutoIncrementalDir="$PPRDIR/../../my_sim/my_sim.srcs/utils_1/imports/design_dds_envelope_16b_0_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020"/>
         <Step Id="synth_design"/>
@@ -293,7 +265,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="design_dds_dds_compiler_1_0_synth_1" Type="Ft3:Synth" SrcSet="design_dds_dds_compiler_1_0" Part="xc7z020clg400-2" ConstrsSet="design_dds_dds_compiler_1_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/design_dds_dds_compiler_1_0_synth_1" IncludeInArchive="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/design_dds_dds_compiler_1_0_synth_1">
+    <Run Id="design_dds_dds_compiler_0_0_synth_1" Type="Ft3:Synth" SrcSet="design_dds_dds_compiler_0_0" Part="xc7z020clg400-2" ConstrsSet="design_dds_dds_compiler_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/design_dds_dds_compiler_0_0_synth_1" IncludeInArchive="true" AutoIncrementalDir="$PPRDIR/../../my_sim/my_sim.srcs/utils_1/imports/design_dds_dds_compiler_0_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020"/>
         <Step Id="synth_design"/>
@@ -303,7 +275,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="design_dds_mult_gen_0_0_synth_1" Type="Ft3:Synth" SrcSet="design_dds_mult_gen_0_0" Part="xc7z020clg400-2" ConstrsSet="design_dds_mult_gen_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/design_dds_mult_gen_0_0_synth_1" IncludeInArchive="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/design_dds_mult_gen_0_0_synth_1">
+    <Run Id="design_dds_dds_compiler_1_0_synth_1" Type="Ft3:Synth" SrcSet="design_dds_dds_compiler_1_0" Part="xc7z020clg400-2" ConstrsSet="design_dds_dds_compiler_1_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/design_dds_dds_compiler_1_0_synth_1" IncludeInArchive="true" AutoIncrementalDir="$PPRDIR/../../my_sim/my_sim.srcs/utils_1/imports/design_dds_dds_compiler_1_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020"/>
         <Step Id="synth_design"/>
@@ -313,7 +285,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="design_dds_carrier_scale_0_0_synth_1" Type="Ft3:Synth" SrcSet="design_dds_carrier_scale_0_0" Part="xc7z020clg400-2" ConstrsSet="design_dds_carrier_scale_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/design_dds_carrier_scale_0_0_synth_1" IncludeInArchive="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/design_dds_carrier_scale_0_0_synth_1">
+    <Run Id="design_dds_mult_gen_0_0_synth_1" Type="Ft3:Synth" SrcSet="design_dds_mult_gen_0_0" Part="xc7z020clg400-2" ConstrsSet="design_dds_mult_gen_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/design_dds_mult_gen_0_0_synth_1" IncludeInArchive="true" AutoIncrementalDir="$PPRDIR/../../my_sim/my_sim.srcs/utils_1/imports/design_dds_mult_gen_0_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020"/>
         <Step Id="synth_design"/>
@@ -323,11 +295,9 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="design_dds_dds_compiler_0_2_synth_1" Type="Ft3:Synth" SrcSet="design_dds_dds_compiler_0_2" Part="xc7z020clg400-2" ConstrsSet="design_dds_dds_compiler_0_2" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/design_dds_dds_compiler_0_2_synth_1" IncludeInArchive="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/design_dds_dds_compiler_0_2_synth_1">
+    <Run Id="design_dds_carrier_scale_0_0_synth_1" Type="Ft3:Synth" SrcSet="design_dds_carrier_scale_0_0" Part="xc7z020clg400-2" ConstrsSet="design_dds_carrier_scale_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/design_dds_carrier_scale_0_0_synth_1" IncludeInArchive="true" AutoIncrementalDir="$PPRDIR/../../my_sim/my_sim.srcs/utils_1/imports/design_dds_carrier_scale_0_0_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -335,19 +305,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="design_dds_fir_compiler_0_2_synth_1" Type="Ft3:Synth" SrcSet="design_dds_fir_compiler_0_2" Part="xc7z020clg400-2" ConstrsSet="design_dds_fir_compiler_0_2" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/design_dds_fir_compiler_0_2_synth_1" IncludeInArchive="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/design_dds_fir_compiler_0_2_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2020"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-2" ConstrsSet="constrs_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" SynthRun="synth_1" IncludeInArchive="true" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/impl_1">
+    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-2" ConstrsSet="constrs_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" SynthRun="synth_1" IncludeInArchive="true" GenFullBitstream="true" AutoIncrementalDir="$PPRDIR/../../my_sim/my_sim.srcs/utils_1/imports/impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020"/>
         <Step Id="init_design"/>
@@ -364,7 +322,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="design_dds_envelope_16b_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-2" ConstrsSet="design_dds_envelope_16b_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="design_dds_envelope_16b_0_0_synth_1" IncludeInArchive="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/design_dds_envelope_16b_0_0_impl_1">
+    <Run Id="design_dds_envelope_16b_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-2" ConstrsSet="design_dds_envelope_16b_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="design_dds_envelope_16b_0_0_synth_1" IncludeInArchive="false" GenFullBitstream="true" AutoIncrementalDir="$PPRDIR/../../my_sim/my_sim.srcs/utils_1/imports/design_dds_envelope_16b_0_0_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020"/>
         <Step Id="init_design"/>
@@ -381,7 +339,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="design_dds_dds_compiler_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-2" ConstrsSet="design_dds_dds_compiler_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="design_dds_dds_compiler_0_0_synth_1" IncludeInArchive="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/design_dds_dds_compiler_0_0_impl_1">
+    <Run Id="design_dds_dds_compiler_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-2" ConstrsSet="design_dds_dds_compiler_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="design_dds_dds_compiler_0_0_synth_1" IncludeInArchive="false" GenFullBitstream="true" AutoIncrementalDir="$PPRDIR/../../my_sim/my_sim.srcs/utils_1/imports/design_dds_dds_compiler_0_0_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020"/>
         <Step Id="init_design"/>
@@ -398,7 +356,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="design_dds_dds_compiler_1_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-2" ConstrsSet="design_dds_dds_compiler_1_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="design_dds_dds_compiler_1_0_synth_1" IncludeInArchive="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/design_dds_dds_compiler_1_0_impl_1">
+    <Run Id="design_dds_dds_compiler_1_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-2" ConstrsSet="design_dds_dds_compiler_1_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="design_dds_dds_compiler_1_0_synth_1" IncludeInArchive="false" GenFullBitstream="true" AutoIncrementalDir="$PPRDIR/../../my_sim/my_sim.srcs/utils_1/imports/design_dds_dds_compiler_1_0_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020"/>
         <Step Id="init_design"/>
@@ -415,7 +373,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="design_dds_mult_gen_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-2" ConstrsSet="design_dds_mult_gen_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="design_dds_mult_gen_0_0_synth_1" IncludeInArchive="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/design_dds_mult_gen_0_0_impl_1">
+    <Run Id="design_dds_mult_gen_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-2" ConstrsSet="design_dds_mult_gen_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="design_dds_mult_gen_0_0_synth_1" IncludeInArchive="false" GenFullBitstream="true" AutoIncrementalDir="$PPRDIR/../../my_sim/my_sim.srcs/utils_1/imports/design_dds_mult_gen_0_0_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020"/>
         <Step Id="init_design"/>
@@ -432,47 +390,9 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="design_dds_carrier_scale_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-2" ConstrsSet="design_dds_carrier_scale_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="design_dds_carrier_scale_0_0_synth_1" IncludeInArchive="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/design_dds_carrier_scale_0_0_impl_1">
+    <Run Id="design_dds_carrier_scale_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-2" ConstrsSet="design_dds_carrier_scale_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="design_dds_carrier_scale_0_0_synth_1" IncludeInArchive="false" GenFullBitstream="true" AutoIncrementalDir="$PPRDIR/../../my_sim/my_sim.srcs/utils_1/imports/design_dds_carrier_scale_0_0_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2020"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="design_dds_dds_compiler_0_2_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-2" ConstrsSet="design_dds_dds_compiler_0_2" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="design_dds_dds_compiler_0_2_synth_1" IncludeInArchive="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/design_dds_dds_compiler_0_2_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2020"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="design_dds_fir_compiler_0_2_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-2" ConstrsSet="design_dds_fir_compiler_0_2" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="design_dds_fir_compiler_0_2_synth_1" IncludeInArchive="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/design_dds_fir_compiler_0_2_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
