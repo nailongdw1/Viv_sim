@@ -451,7 +451,7 @@
                 "value": "COE_File"
               },
               "Coefficient_File": {
-                "value": "../../../../../../coh_fir.coe"
+                "value": "../../../../../../coh_fir_v2.coe"
               },
               "Coefficient_Fractional_Bits": {
                 "value": "0"
@@ -469,7 +469,7 @@
                 "value": "18"
               },
               "ColumnConfig": {
-                "value": "32"
+                "value": "60,5"
               },
               "Data_Fractional_Bits": {
                 "value": "0"
@@ -487,7 +487,7 @@
                 "value": "Full_Precision"
               },
               "Output_Width": {
-                "value": "53"
+                "value": "48"
               },
               "Quantization": {
                 "value": "Integer_Coefficients"
@@ -527,13 +527,13 @@
             "inst_hier_path": "Demodulator/xlslice_0",
             "parameters": {
               "DIN_FROM": {
-                "value": "55"
+                "value": "47"
               },
               "DIN_TO": {
-                "value": "40"
+                "value": "32"
               },
               "DIN_WIDTH": {
-                "value": "56"
+                "value": "48"
               },
               "DOUT_WIDTH": {
                 "value": "16"
@@ -558,12 +558,6 @@
             "ports": [
               "xlconstant_0/dout",
               "fir_compiler_0/s_axis_data_tvalid"
-            ]
-          },
-          "fir_compiler_0_m_axis_data_tdata": {
-            "ports": [
-              "fir_compiler_0/m_axis_data_tdata",
-              "xlslice_0/Din"
             ]
           },
           "aclk_0_1": {
@@ -595,6 +589,12 @@
             "ports": [
               "xlslice_0/Dout",
               "AM_out"
+            ]
+          },
+          "fir_compiler_0_m_axis_data_tdata": {
+            "ports": [
+              "fir_compiler_0/m_axis_data_tdata",
+              "xlslice_0/Din"
             ]
           }
         }

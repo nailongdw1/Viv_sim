@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Nov  1 13:46:51 2026" VIVADOVERSION="2020.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Nov  1 14:05:28 2026" VIVADOVERSION="2020.2">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="design_dds" PACKAGE="clg400" SPEEDGRADE="-2"/>
 
@@ -56,14 +56,14 @@
         <PARAMETER NAME="C_ELABORATION_DIR" VALUE="./"/>
         <PARAMETER NAME="C_COMPONENT_NAME" VALUE="design_dds_fir_compiler_0_2"/>
         <PARAMETER NAME="C_COEF_FILE" VALUE="design_dds_fir_compiler_0_2.mif"/>
-        <PARAMETER NAME="C_COEF_FILE_LINES" VALUE="32"/>
+        <PARAMETER NAME="C_COEF_FILE_LINES" VALUE="65"/>
         <PARAMETER NAME="C_FILTER_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_INTERP_RATE" VALUE="1"/>
         <PARAMETER NAME="C_DECIM_RATE" VALUE="1"/>
         <PARAMETER NAME="C_ZERO_PACKING_FACTOR" VALUE="1"/>
         <PARAMETER NAME="C_SYMMETRY" VALUE="1"/>
         <PARAMETER NAME="C_NUM_FILTS" VALUE="1"/>
-        <PARAMETER NAME="C_NUM_TAPS" VALUE="64"/>
+        <PARAMETER NAME="C_NUM_TAPS" VALUE="129"/>
         <PARAMETER NAME="C_NUM_CHANNELS" VALUE="1"/>
         <PARAMETER NAME="C_CHANNEL_PATTERN" VALUE="fixed"/>
         <PARAMETER NAME="C_ROUND_MODE" VALUE="0"/>
@@ -71,7 +71,7 @@
         <PARAMETER NAME="C_NUM_RELOAD_SLOTS" VALUE="1"/>
         <PARAMETER NAME="C_COL_MODE" VALUE="1"/>
         <PARAMETER NAME="C_COL_PIPE_LEN" VALUE="4"/>
-        <PARAMETER NAME="C_COL_CONFIG" VALUE="32"/>
+        <PARAMETER NAME="C_COL_CONFIG" VALUE="60,5"/>
         <PARAMETER NAME="C_OPTIMIZATION" VALUE="0"/>
         <PARAMETER NAME="C_DATA_PATH_WIDTHS" VALUE="16,16"/>
         <PARAMETER NAME="C_DATA_IP_PATH_WIDTHS" VALUE="32"/>
@@ -84,14 +84,14 @@
         <PARAMETER NAME="C_PX_PATH_SRC" VALUE="0,1"/>
         <PARAMETER NAME="C_DATA_PATH_SIGN" VALUE="1,0"/>
         <PARAMETER NAME="C_COEF_PATH_SIGN" VALUE="0,0"/>
-        <PARAMETER NAME="C_ACCUM_PATH_WIDTHS" VALUE="38,37"/>
-        <PARAMETER NAME="C_OUTPUT_WIDTH" VALUE="53"/>
-        <PARAMETER NAME="C_OUTPUT_PATH_WIDTHS" VALUE="53"/>
-        <PARAMETER NAME="C_ACCUM_OP_PATH_WIDTHS" VALUE="53"/>
+        <PARAMETER NAME="C_ACCUM_PATH_WIDTHS" VALUE="33,32"/>
+        <PARAMETER NAME="C_OUTPUT_WIDTH" VALUE="48"/>
+        <PARAMETER NAME="C_OUTPUT_PATH_WIDTHS" VALUE="48"/>
+        <PARAMETER NAME="C_ACCUM_OP_PATH_WIDTHS" VALUE="48"/>
         <PARAMETER NAME="C_EXT_MULT_CNFG" VALUE="0,1,0,16"/>
         <PARAMETER NAME="C_DATA_PATH_PSAMP_SRC" VALUE="0"/>
         <PARAMETER NAME="C_OP_PATH_PSAMP_SRC" VALUE="0"/>
-        <PARAMETER NAME="C_NUM_MADDS" VALUE="32"/>
+        <PARAMETER NAME="C_NUM_MADDS" VALUE="65"/>
         <PARAMETER NAME="C_OPT_MADDS" VALUE="none"/>
         <PARAMETER NAME="C_OVERSAMPLING_RATE" VALUE="1"/>
         <PARAMETER NAME="C_INPUT_RATE" VALUE="1"/>
@@ -105,7 +105,7 @@
         <PARAMETER NAME="C_DATA_MEM_PACKING" VALUE="0"/>
         <PARAMETER NAME="C_COEF_MEM_PACKING" VALUE="0"/>
         <PARAMETER NAME="C_FILTS_PACKED" VALUE="0"/>
-        <PARAMETER NAME="C_LATENCY" VALUE="40"/>
+        <PARAMETER NAME="C_LATENCY" VALUE="77"/>
         <PARAMETER NAME="C_HAS_ARESETn" VALUE="1"/>
         <PARAMETER NAME="C_HAS_ACLKEN" VALUE="0"/>
         <PARAMETER NAME="C_DATA_HAS_TLAST" VALUE="0"/>
@@ -115,7 +115,7 @@
         <PARAMETER NAME="C_S_DATA_TUSER_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_M_DATA_HAS_TREADY" VALUE="0"/>
         <PARAMETER NAME="C_M_DATA_HAS_TUSER" VALUE="0"/>
-        <PARAMETER NAME="C_M_DATA_TDATA_WIDTH" VALUE="56"/>
+        <PARAMETER NAME="C_M_DATA_TDATA_WIDTH" VALUE="48"/>
         <PARAMETER NAME="C_M_DATA_TUSER_WIDTH" VALUE="1"/>
         <PARAMETER NAME="C_HAS_CONFIG_CHANNEL" VALUE="0"/>
         <PARAMETER NAME="C_CONFIG_SYNC_MODE" VALUE="0"/>
@@ -126,7 +126,7 @@
         <PARAMETER NAME="GUI_Behaviour" VALUE="Coregen"/>
         <PARAMETER NAME="CoefficientSource" VALUE="COE_File"/>
         <PARAMETER NAME="CoefficientVector" VALUE="6,0,-4,-3,5,6,-6,-13,7,44,64,44,7,-13,-6,6,5,-3,-4,0,6"/>
-        <PARAMETER NAME="Coefficient_File" VALUE="../../../../../../coh_fir.coe"/>
+        <PARAMETER NAME="Coefficient_File" VALUE="../../../../../../coh_fir_v2.coe"/>
         <PARAMETER NAME="Coefficient_Sets" VALUE="1"/>
         <PARAMETER NAME="Coefficient_Reload" VALUE="false"/>
         <PARAMETER NAME="Filter_Type" VALUE="Single_Rate"/>
@@ -154,7 +154,7 @@
         <PARAMETER NAME="Data_Width" VALUE="32"/>
         <PARAMETER NAME="Data_Fractional_Bits" VALUE="0"/>
         <PARAMETER NAME="Output_Rounding_Mode" VALUE="Full_Precision"/>
-        <PARAMETER NAME="Output_Width" VALUE="53"/>
+        <PARAMETER NAME="Output_Width" VALUE="48"/>
         <PARAMETER NAME="Filter_Architecture" VALUE="Systolic_Multiply_Accumulate"/>
         <PARAMETER NAME="Optimization_Goal" VALUE="Area"/>
         <PARAMETER NAME="Optimization_Selection" VALUE="None"/>
@@ -179,7 +179,7 @@
         <PARAMETER NAME="Preference_For_Other_Storage" VALUE="Automatic"/>
         <PARAMETER NAME="Multi_Column_Support" VALUE="Automatic"/>
         <PARAMETER NAME="Inter_Column_Pipe_Length" VALUE="4"/>
-        <PARAMETER NAME="ColumnConfig" VALUE="32"/>
+        <PARAMETER NAME="ColumnConfig" VALUE="60,5"/>
         <PARAMETER NAME="DATA_Has_TLAST" VALUE="Not_Required"/>
         <PARAMETER NAME="M_DATA_Has_TREADY" VALUE="false"/>
         <PARAMETER NAME="S_DATA_Has_FIFO" VALUE="true"/>
@@ -228,7 +228,7 @@
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="m_axis_data_tvalid" SIGIS="undef"/>
-        <PORT DIR="O" LEFT="55" NAME="m_axis_data_tdata" RIGHT="0" SIGIS="undef" SIGNAME="Demodulator_fir_compiler_0_m_axis_data_tdata">
+        <PORT DIR="O" LEFT="47" NAME="m_axis_data_tdata" RIGHT="0" SIGIS="undef" SIGNAME="Demodulator_fir_compiler_0_m_axis_data_tdata">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Demodulator_xlslice_0" PORT="Din"/>
           </CONNECTIONS>
@@ -256,7 +256,7 @@
           </PORTMAPS>
         </BUSINTERFACE>
         <BUSINTERFACE BUSNAME="__NOC__" NAME="M_AXIS_DATA" TYPE="INITIATOR" VLNV="xilinx.com:interface:axis:1.0">
-          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="7"/>
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="6"/>
           <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
           <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
           <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
@@ -267,7 +267,7 @@
           <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
           <PARAMETER NAME="PHASE" VALUE="0.000"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="design_dds_aclk_0"/>
-          <PARAMETER NAME="LAYERED_METADATA" VALUE="xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 53} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value chan} size {attribs {resolve_type generated dependency chan_size format long minimum {} maximum {}} value 1} stride {attribs {resolve_type generated dependency chan_stride format long minimum {} maximum {}} value 56} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 53} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value path} size {attribs {resolve_type generated dependency path_size format long minimum {} maximum {}} value 1} stride {attribs {resolve_type generated dependency path_stride format long minimum {} maximum {}} value 56} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency out_width format long minimum {} maximum {}} value 53} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} real {fixed {fractwidth {attribs {resolve_type generated dependency out_fractwidth format long minimum {} maximum {}} value 0} signed {attribs {resolve_type generated dependency out_signed format bool minimum {} maximum {}} value true}}}}}}}}} TDATA_WIDTH 56 TUSER {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_data_valid {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data_valid} enabled {attribs {resolve_type generated dependency data_valid_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency data_valid_bitwidth format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} field_chanid {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value chanid} enabled {attribs {resolve_type generated dependency chanid_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency chanid_bitwidth format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type generated dependency chanid_bitoffset format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} field_user {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value user} enabled {attribs {resolve_type generated dependency user_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency user_bitwidth format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type generated dependency user_bitoffset format long minimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 48} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value chan} size {attribs {resolve_type generated dependency chan_size format long minimum {} maximum {}} value 1} stride {attribs {resolve_type generated dependency chan_stride format long minimum {} maximum {}} value 48} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 48} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value path} size {attribs {resolve_type generated dependency path_size format long minimum {} maximum {}} value 1} stride {attribs {resolve_type generated dependency path_stride format long minimum {} maximum {}} value 48} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency out_width format long minimum {} maximum {}} value 48} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} real {fixed {fractwidth {attribs {resolve_type generated dependency out_fractwidth format long minimum {} maximum {}} value 0} signed {attribs {resolve_type generated dependency out_signed format bool minimum {} maximum {}} value true}}}}}}}}} TDATA_WIDTH 48 TUSER {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_data_valid {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data_valid} enabled {attribs {resolve_type generated dependency data_valid_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency data_valid_bitwidth format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} field_chanid {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value chanid} enabled {attribs {resolve_type generated dependency chanid_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency chanid_bitwidth format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type generated dependency chanid_bitoffset format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} field_user {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value user} enabled {attribs {resolve_type generated dependency user_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency user_bitwidth format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type generated dependency user_bitoffset format long minimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}"/>
           <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
           <PORTMAPS>
             <PORTMAP LOGICAL="TDATA" PHYSICAL="m_axis_data_tdata"/>
@@ -368,15 +368,15 @@
     <MODULE COREREVISION="2" FULLNAME="/Demodulator/xlslice_0" HWVERSION="1.0" INSTANCE="Demodulator_xlslice_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlslice" VLNV="xilinx.com:ip:xlslice:1.0">
       <DOCUMENTS/>
       <PARAMETERS>
-        <PARAMETER NAME="DIN_WIDTH" VALUE="56"/>
-        <PARAMETER NAME="DIN_FROM" VALUE="55"/>
-        <PARAMETER NAME="DIN_TO" VALUE="40"/>
+        <PARAMETER NAME="DIN_WIDTH" VALUE="48"/>
+        <PARAMETER NAME="DIN_FROM" VALUE="47"/>
+        <PARAMETER NAME="DIN_TO" VALUE="32"/>
         <PARAMETER NAME="Component_Name" VALUE="design_dds_xlslice_0_0"/>
         <PARAMETER NAME="DOUT_WIDTH" VALUE="16"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" LEFT="55" NAME="Din" RIGHT="0" SIGIS="undef" SIGNAME="Demodulator_fir_compiler_0_m_axis_data_tdata">
+        <PORT DIR="I" LEFT="47" NAME="Din" RIGHT="0" SIGIS="undef" SIGNAME="Demodulator_fir_compiler_0_m_axis_data_tdata">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Demodulator_fir_compiler_0" PORT="m_axis_data_tdata"/>
           </CONNECTIONS>

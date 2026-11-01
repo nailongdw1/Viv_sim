@@ -64,7 +64,7 @@ ENTITY design_dds_fir_compiler_0_2 IS
     s_axis_data_tready : OUT STD_LOGIC;
     s_axis_data_tdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     m_axis_data_tvalid : OUT STD_LOGIC;
-    m_axis_data_tdata : OUT STD_LOGIC_VECTOR(55 DOWNTO 0)
+    m_axis_data_tdata : OUT STD_LOGIC_VECTOR(47 DOWNTO 0)
   );
 END design_dds_fir_compiler_0_2;
 
@@ -165,7 +165,7 @@ ARCHITECTURE design_dds_fir_compiler_0_2_arch OF design_dds_fir_compiler_0_2 IS
       m_axis_data_tready : IN STD_LOGIC;
       m_axis_data_tlast : OUT STD_LOGIC;
       m_axis_data_tuser : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-      m_axis_data_tdata : OUT STD_LOGIC_VECTOR(55 DOWNTO 0);
+      m_axis_data_tdata : OUT STD_LOGIC_VECTOR(47 DOWNTO 0);
       event_s_data_tlast_missing : OUT STD_LOGIC;
       event_s_data_tlast_unexpected : OUT STD_LOGIC;
       event_s_data_chanid_incorrect : OUT STD_LOGIC;
@@ -180,18 +180,18 @@ ARCHITECTURE design_dds_fir_compiler_0_2_arch OF design_dds_fir_compiler_0_2 IS
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF design_dds_fir_compiler_0_2_arch : ARCHITECTURE IS "design_dds_fir_compiler_0_2,fir_compiler_v7_2_15,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF design_dds_fir_compiler_0_2_arch: ARCHITECTURE IS "design_dds_fir_compiler_0_2,fir_compiler_v7_2_15,{x_ipProduct=Vivado 2020.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=fir_compiler,x_ipVersion=7.2,x_ipCoreRevision=15,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_XDEVICEFAMILY=zynq,C_ELABORATION_DIR=./,C_COMPONENT_NAME=design_dds_fir_compiler_0_2,C_COEF_FILE=design_dds_fir_compiler_0_2.mif,C_COEF_FILE_LINES=32,C_FILTER_TYPE=0,C_INTERP_RATE=1,C_DECIM_RATE=1,C_ZERO_PACKING_FACTOR=1,C_SYMMETRY=1,C_NUM_FILTS=1,C_NUM_TAPS=64,C_NUM_CHANNELS=1,C_CHA" & 
-"NNEL_PATTERN=fixed,C_ROUND_MODE=0,C_COEF_RELOAD=0,C_NUM_RELOAD_SLOTS=1,C_COL_MODE=1,C_COL_PIPE_LEN=4,C_COL_CONFIG=32,C_OPTIMIZATION=0,C_DATA_PATH_WIDTHS=16_16,C_DATA_IP_PATH_WIDTHS=32,C_DATA_PX_PATH_WIDTHS=32,C_DATA_WIDTH=32,C_COEF_PATH_WIDTHS=18_18,C_COEF_WIDTH=18,C_DATA_PATH_SRC=0_1,C_COEF_PATH_SRC=0_0,C_PX_PATH_SRC=0_1,C_DATA_PATH_SIGN=1_0,C_COEF_PATH_SIGN=0_0,C_ACCUM_PATH_WIDTHS=38_37,C_OUTPUT_WIDTH=53,C_OUTPUT_PATH_WIDTHS=53,C_ACCUM_OP_PATH_WIDTHS=53,C_EXT_MULT_CNFG=0_1_0_16,C_DATA_PATH_PSA" & 
-"MP_SRC=0,C_OP_PATH_PSAMP_SRC=0,C_NUM_MADDS=32,C_OPT_MADDS=none,C_OVERSAMPLING_RATE=1,C_INPUT_RATE=1,C_OUTPUT_RATE=1,C_DATA_MEMTYPE=0,C_COEF_MEMTYPE=2,C_IPBUFF_MEMTYPE=0,C_OPBUFF_MEMTYPE=0,C_DATAPATH_MEMTYPE=0,C_MEM_ARRANGEMENT=1,C_DATA_MEM_PACKING=0,C_COEF_MEM_PACKING=0,C_FILTS_PACKED=0,C_LATENCY=40,C_HAS_ARESETn=1,C_HAS_ACLKEN=0,C_DATA_HAS_TLAST=0,C_S_DATA_HAS_FIFO=1,C_S_DATA_HAS_TUSER=0,C_S_DATA_TDATA_WIDTH=32,C_S_DATA_TUSER_WIDTH=1,C_M_DATA_HAS_TREADY=0,C_M_DATA_HAS_TUSER=0,C_M_DATA_TDATA_WID" & 
-"TH=56,C_M_DATA_TUSER_WIDTH=1,C_HAS_CONFIG_CHANNEL=0,C_CONFIG_SYNC_MODE=0,C_CONFIG_PACKET_SIZE=0,C_CONFIG_TDATA_WIDTH=1,C_RELOAD_TDATA_WIDTH=1}";
+  ATTRIBUTE CORE_GENERATION_INFO OF design_dds_fir_compiler_0_2_arch: ARCHITECTURE IS "design_dds_fir_compiler_0_2,fir_compiler_v7_2_15,{x_ipProduct=Vivado 2020.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=fir_compiler,x_ipVersion=7.2,x_ipCoreRevision=15,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_XDEVICEFAMILY=zynq,C_ELABORATION_DIR=./,C_COMPONENT_NAME=design_dds_fir_compiler_0_2,C_COEF_FILE=design_dds_fir_compiler_0_2.mif,C_COEF_FILE_LINES=65,C_FILTER_TYPE=0,C_INTERP_RATE=1,C_DECIM_RATE=1,C_ZERO_PACKING_FACTOR=1,C_SYMMETRY=1,C_NUM_FILTS=1,C_NUM_TAPS=129,C_NUM_CHANNELS=1,C_CH" & 
+"ANNEL_PATTERN=fixed,C_ROUND_MODE=0,C_COEF_RELOAD=0,C_NUM_RELOAD_SLOTS=1,C_COL_MODE=1,C_COL_PIPE_LEN=4,C_COL_CONFIG=60_5,C_OPTIMIZATION=0,C_DATA_PATH_WIDTHS=16_16,C_DATA_IP_PATH_WIDTHS=32,C_DATA_PX_PATH_WIDTHS=32,C_DATA_WIDTH=32,C_COEF_PATH_WIDTHS=18_18,C_COEF_WIDTH=18,C_DATA_PATH_SRC=0_1,C_COEF_PATH_SRC=0_0,C_PX_PATH_SRC=0_1,C_DATA_PATH_SIGN=1_0,C_COEF_PATH_SIGN=0_0,C_ACCUM_PATH_WIDTHS=33_32,C_OUTPUT_WIDTH=48,C_OUTPUT_PATH_WIDTHS=48,C_ACCUM_OP_PATH_WIDTHS=48,C_EXT_MULT_CNFG=0_1_0_16,C_DATA_PATH_" & 
+"PSAMP_SRC=0,C_OP_PATH_PSAMP_SRC=0,C_NUM_MADDS=65,C_OPT_MADDS=none,C_OVERSAMPLING_RATE=1,C_INPUT_RATE=1,C_OUTPUT_RATE=1,C_DATA_MEMTYPE=0,C_COEF_MEMTYPE=2,C_IPBUFF_MEMTYPE=0,C_OPBUFF_MEMTYPE=0,C_DATAPATH_MEMTYPE=0,C_MEM_ARRANGEMENT=1,C_DATA_MEM_PACKING=0,C_COEF_MEM_PACKING=0,C_FILTS_PACKED=0,C_LATENCY=77,C_HAS_ARESETn=1,C_HAS_ACLKEN=0,C_DATA_HAS_TLAST=0,C_S_DATA_HAS_FIFO=1,C_S_DATA_HAS_TUSER=0,C_S_DATA_TDATA_WIDTH=32,C_S_DATA_TUSER_WIDTH=1,C_M_DATA_HAS_TREADY=0,C_M_DATA_HAS_TUSER=0,C_M_DATA_TDATA_" & 
+"WIDTH=48,C_M_DATA_TUSER_WIDTH=1,C_HAS_CONFIG_CHANNEL=0,C_CONFIG_SYNC_MODE=0,C_CONFIG_PACKET_SIZE=0,C_CONFIG_TDATA_WIDTH=1,C_RELOAD_TDATA_WIDTH=1}";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
   ATTRIBUTE X_INTERFACE_INFO OF m_axis_data_tdata: SIGNAL IS "xilinx.com:interface:axis:1.0 M_AXIS_DATA TDATA";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF m_axis_data_tvalid: SIGNAL IS "XIL_INTERFACENAME M_AXIS_DATA, TDATA_NUM_BYTES 7, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_dds_aclk_0, LAYERED_METADATA xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 53} bitoffset {attribs {re" & 
-"solve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value chan} size {attribs {resolve_type generated dependency chan_size format long minimum {} maximum {}} value 1} stride {attribs {resolve_type generated dependency chan_stride format long minimum {} maximum {}} value 56} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}" & 
-"} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 53} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value path} size {attribs {resolve_type generated dependency path_size format long minimum {} maximum {}} value 1} stride {attribs {resolve_type generated dependency path_stride format " & 
-"long minimum {} maximum {}} value 56} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency out_width format long minimum {} maximum {}} value 53} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} real {fixed {fractwidth {attribs {resolve_type generated dependency out_fractwidth format long minimum {} maximum {}} value 0} signed {attribs {" & 
-"resolve_type generated dependency out_signed format bool minimum {} maximum {}} value true}}}}}}}}} TDATA_WIDTH 56 TUSER {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_data_valid {name {attribs {resolve_type immediate depe" & 
+  ATTRIBUTE X_INTERFACE_PARAMETER OF m_axis_data_tvalid: SIGNAL IS "XIL_INTERFACENAME M_AXIS_DATA, TDATA_NUM_BYTES 6, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN design_dds_aclk_0, LAYERED_METADATA xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 48} bitoffset {attribs {re" & 
+"solve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value chan} size {attribs {resolve_type generated dependency chan_size format long minimum {} maximum {}} value 1} stride {attribs {resolve_type generated dependency chan_stride format long minimum {} maximum {}} value 48} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}" & 
+"} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 48} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value path} size {attribs {resolve_type generated dependency path_size format long minimum {} maximum {}} value 1} stride {attribs {resolve_type generated dependency path_stride format " & 
+"long minimum {} maximum {}} value 48} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency out_width format long minimum {} maximum {}} value 48} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} real {fixed {fractwidth {attribs {resolve_type generated dependency out_fractwidth format long minimum {} maximum {}} value 0} signed {attribs {" & 
+"resolve_type generated dependency out_signed format bool minimum {} maximum {}} value true}}}}}}}}} TDATA_WIDTH 48 TUSER {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_data_valid {name {attribs {resolve_type immediate depe" & 
 "ndency {} format string minimum {} maximum {}} value data_valid} enabled {attribs {resolve_type generated dependency data_valid_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency data_valid_bitwidth format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}" & 
 "} value 0}}} field_chanid {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value chanid} enabled {attribs {resolve_type generated dependency chanid_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency chanid_bitwidth format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type " & 
 "generated dependency chanid_bitoffset format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} field_user {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value user} enabled {attribs {resolve_type generated dependency user_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string mi" & 
@@ -212,14 +212,14 @@ BEGIN
       C_ELABORATION_DIR => "./",
       C_COMPONENT_NAME => "design_dds_fir_compiler_0_2",
       C_COEF_FILE => "design_dds_fir_compiler_0_2.mif",
-      C_COEF_FILE_LINES => 32,
+      C_COEF_FILE_LINES => 65,
       C_FILTER_TYPE => 0,
       C_INTERP_RATE => 1,
       C_DECIM_RATE => 1,
       C_ZERO_PACKING_FACTOR => 1,
       C_SYMMETRY => 1,
       C_NUM_FILTS => 1,
-      C_NUM_TAPS => 64,
+      C_NUM_TAPS => 129,
       C_NUM_CHANNELS => 1,
       C_CHANNEL_PATTERN => "fixed",
       C_ROUND_MODE => 0,
@@ -227,7 +227,7 @@ BEGIN
       C_NUM_RELOAD_SLOTS => 1,
       C_COL_MODE => 1,
       C_COL_PIPE_LEN => 4,
-      C_COL_CONFIG => "32",
+      C_COL_CONFIG => "60,5",
       C_OPTIMIZATION => 0,
       C_DATA_PATH_WIDTHS => "16,16",
       C_DATA_IP_PATH_WIDTHS => "32",
@@ -240,14 +240,14 @@ BEGIN
       C_PX_PATH_SRC => "0,1",
       C_DATA_PATH_SIGN => "1,0",
       C_COEF_PATH_SIGN => "0,0",
-      C_ACCUM_PATH_WIDTHS => "38,37",
-      C_OUTPUT_WIDTH => 53,
-      C_OUTPUT_PATH_WIDTHS => "53",
-      C_ACCUM_OP_PATH_WIDTHS => "53",
+      C_ACCUM_PATH_WIDTHS => "33,32",
+      C_OUTPUT_WIDTH => 48,
+      C_OUTPUT_PATH_WIDTHS => "48",
+      C_ACCUM_OP_PATH_WIDTHS => "48",
       C_EXT_MULT_CNFG => "0,1,0,16",
       C_DATA_PATH_PSAMP_SRC => "0",
       C_OP_PATH_PSAMP_SRC => "0",
-      C_NUM_MADDS => 32,
+      C_NUM_MADDS => 65,
       C_OPT_MADDS => "none",
       C_OVERSAMPLING_RATE => 1,
       C_INPUT_RATE => 1,
@@ -261,7 +261,7 @@ BEGIN
       C_DATA_MEM_PACKING => 0,
       C_COEF_MEM_PACKING => 0,
       C_FILTS_PACKED => 0,
-      C_LATENCY => 40,
+      C_LATENCY => 77,
       C_HAS_ARESETn => 1,
       C_HAS_ACLKEN => 0,
       C_DATA_HAS_TLAST => 0,
@@ -271,7 +271,7 @@ BEGIN
       C_S_DATA_TUSER_WIDTH => 1,
       C_M_DATA_HAS_TREADY => 0,
       C_M_DATA_HAS_TUSER => 0,
-      C_M_DATA_TDATA_WIDTH => 56,
+      C_M_DATA_TDATA_WIDTH => 48,
       C_M_DATA_TUSER_WIDTH => 1,
       C_HAS_CONFIG_CHANNEL => 0,
       C_CONFIG_SYNC_MODE => 0,

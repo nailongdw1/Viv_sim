@@ -52,20 +52,20 @@
 
 (* X_CORE_INFO = "xlslice_v1_0_2_xlslice,Vivado 2020.2" *)
 (* CHECK_LICENSE_TYPE = "design_dds_xlslice_0_0,xlslice_v1_0_2_xlslice,{}" *)
-(* CORE_GENERATION_INFO = "design_dds_xlslice_0_0,xlslice_v1_0_2_xlslice,{x_ipProduct=Vivado 2020.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=xlslice,x_ipVersion=1.0,x_ipCoreRevision=2,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,DIN_WIDTH=56,DIN_FROM=55,DIN_TO=40}" *)
+(* CORE_GENERATION_INFO = "design_dds_xlslice_0_0,xlslice_v1_0_2_xlslice,{x_ipProduct=Vivado 2020.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=xlslice,x_ipVersion=1.0,x_ipCoreRevision=2,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,DIN_WIDTH=48,DIN_FROM=47,DIN_TO=32}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_dds_xlslice_0_0 (
   Din,
   Dout
 );
 
-input wire [55 : 0] Din;
+input wire [47 : 0] Din;
 output wire [15 : 0] Dout;
 
   xlslice_v1_0_2_xlslice #(
-    .DIN_WIDTH(56),
-    .DIN_FROM(55),
-    .DIN_TO(40)
+    .DIN_WIDTH(48),
+    .DIN_FROM(47),
+    .DIN_TO(32)
   ) inst (
     .Din(Din),
     .Dout(Dout)

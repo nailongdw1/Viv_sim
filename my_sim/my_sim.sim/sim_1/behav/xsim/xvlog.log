@@ -8,10 +8,10 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ASUS/Xilinx_project/my_sim
 INFO: [VRFC 10-311] analyzing module design_dds_carrier_scale_0_0
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ASUS/Xilinx_project/my_sim/Viv_sim/my_sim/mySim.gen/sources_1/bd/design_dds/ip/design_dds_xlconstant_0_0/sim/design_dds_xlconstant_0_0.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module design_dds_xlconstant_0_0
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ASUS/Xilinx_project/my_sim/Viv_sim/my_sim/mySim.gen/sources_1/bd/design_dds/ip/design_dds_xlslice_0_0/sim/design_dds_xlslice_0_0.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module design_dds_xlslice_0_0
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ASUS/Xilinx_project/my_sim/Viv_sim/my_sim/mySim.gen/sources_1/bd/design_dds/ip/design_dds_xlslice_1_1/sim/design_dds_xlslice_1_1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module design_dds_xlslice_1_1
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ASUS/Xilinx_project/my_sim/Viv_sim/my_sim/mySim.gen/sources_1/bd/design_dds/ip/design_dds_xlslice_0_0/sim/design_dds_xlslice_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module design_dds_xlslice_0_0
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/ASUS/Xilinx_project/my_sim/Viv_sim/my_sim/mySim.gen/sources_1/bd/design_dds/sim/design_dds.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module Demodulator_imp_1DSD5LK
 INFO: [VRFC 10-311] analyzing module Modulator_imp_1QZ5NNK

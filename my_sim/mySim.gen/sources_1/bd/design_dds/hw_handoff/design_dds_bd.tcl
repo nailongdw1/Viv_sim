@@ -302,19 +302,19 @@ proc create_hier_cell_Demodulator { parentCell nameHier } {
   set_property -dict [ list \
    CONFIG.Clock_Frequency {100} \
    CONFIG.CoefficientSource {COE_File} \
-   CONFIG.Coefficient_File {../../../../../../coh_fir.coe} \
+   CONFIG.Coefficient_File {../../../../../../coh_fir_v2.coe} \
    CONFIG.Coefficient_Fractional_Bits {0} \
    CONFIG.Coefficient_Sets {1} \
    CONFIG.Coefficient_Sign {Signed} \
    CONFIG.Coefficient_Structure {Inferred} \
    CONFIG.Coefficient_Width {18} \
-   CONFIG.ColumnConfig {32} \
+   CONFIG.ColumnConfig {60,5} \
    CONFIG.Data_Fractional_Bits {0} \
    CONFIG.Data_Width {32} \
    CONFIG.Filter_Architecture {Systolic_Multiply_Accumulate} \
    CONFIG.Has_ARESETn {true} \
    CONFIG.Output_Rounding_Mode {Full_Precision} \
-   CONFIG.Output_Width {53} \
+   CONFIG.Output_Width {48} \
    CONFIG.Quantization {Integer_Coefficients} \
    CONFIG.Sample_Frequency {100} \
  ] $fir_compiler_0
@@ -333,9 +333,9 @@ proc create_hier_cell_Demodulator { parentCell nameHier } {
   # Create instance: xlslice_0, and set properties
   set xlslice_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlslice:1.0 xlslice_0 ]
   set_property -dict [ list \
-   CONFIG.DIN_FROM {55} \
-   CONFIG.DIN_TO {40} \
-   CONFIG.DIN_WIDTH {56} \
+   CONFIG.DIN_FROM {47} \
+   CONFIG.DIN_TO {32} \
+   CONFIG.DIN_WIDTH {48} \
    CONFIG.DOUT_WIDTH {16} \
  ] $xlslice_0
 

@@ -1,7 +1,7 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-//Date        : Sun Nov  1 13:46:50 2026
+//Date        : Sun Nov  1 14:05:28 2026
 //Host        : LAPTOP-G7S5V53H running 64-bit major release  (build 9200)
 //Command     : generate_target design_dds.bd
 //Design      : design_dds
@@ -23,7 +23,7 @@ module Demodulator_imp_1DSD5LK
 
   wire aclk_0_1;
   wire [15:0]carrier_scale_0_dout;
-  wire [55:0]fir_compiler_0_m_axis_data_tdata;
+  wire [47:0]fir_compiler_0_m_axis_data_tdata;
   wire [31:0]mult_gen_0_P;
   wire [31:0]mult_gen_0_P1;
   wire rst_n_1;

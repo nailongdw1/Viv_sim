@@ -36,6 +36,9 @@
 -makelib ies_lib/xil_defaultlib \
   "../../../../mySim.gen/sources_1/bd/design_dds/ip/design_dds_carrier_scale_0_0/sim/design_dds_carrier_scale_0_0.v" \
 -endlib
+-makelib ies_lib/xil_defaultlib \
+  "../../../../mySim.gen/sources_1/bd/design_dds/ip/design_dds_mult_gen_0_3/sim/design_dds_mult_gen_0_3.vhd" \
+-endlib
 -makelib ies_lib/fir_compiler_v7_2_15 \
   "../../../../my_sim.gen/sources_1/bd/design_dds/ipshared/9825/hdl/fir_compiler_v7_2_vh_rfs.vhd" \
 -endlib
@@ -52,13 +55,8 @@
   "../../../../my_sim.gen/sources_1/bd/design_dds/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v" \
 -endlib
 -makelib ies_lib/xil_defaultlib \
-  "../../../../mySim.gen/sources_1/bd/design_dds/ip/design_dds_xlslice_0_0/sim/design_dds_xlslice_0_0.v" \
   "../../../../mySim.gen/sources_1/bd/design_dds/ip/design_dds_xlslice_1_1/sim/design_dds_xlslice_1_1.v" \
--endlib
--makelib ies_lib/xil_defaultlib \
-  "../../../../mySim.gen/sources_1/bd/design_dds/ip/design_dds_mult_gen_0_3/sim/design_dds_mult_gen_0_3.vhd" \
--endlib
--makelib ies_lib/xil_defaultlib \
+  "../../../../mySim.gen/sources_1/bd/design_dds/ip/design_dds_xlslice_0_0/sim/design_dds_xlslice_0_0.v" \
   "../../../../mySim.gen/sources_1/bd/design_dds/sim/design_dds.v" \
 -endlib
 -makelib ies_lib/xil_defaultlib \
